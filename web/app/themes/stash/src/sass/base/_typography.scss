@@ -1,0 +1,64 @@
+body {
+    font-size: em(16);
+    font-style: normal;
+    font-weight: 300;
+
+    p {
+        line-height: 1.6em;
+        letter-spacing: .05em;
+        margin: 1em auto;
+    }
+
+    ul, ol {
+        letter-spacing: .05em;
+    }
+
+    .article-body {
+        p {
+            margin-top: 2em;
+        }
+
+        strong {
+            font-weight: 600;
+        }
+    }
+}
+
+a {
+    font-weight: 600;
+    font-size: em(16);
+    text-decoration: none;
+    outline: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 600;
+    font-style: normal;
+    letter-spacing: .08em;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: em(36);
+}
+
+h2 {
+    font-size: em(34);
+}
+
+h3 {
+    font-size: em(22);
+}
+
+h4 {
+    font-size: em(18);
+}
+
+h5 {
+    font-size: em(16);
+}
