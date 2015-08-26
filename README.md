@@ -23,3 +23,7 @@
 1. Clone the git repo - `git clone https://github.com/undefinedio/stash.git`
 2. Run `composer install`
 2. Run `node ./bin/setup.js`
+
+## To use ACF pro
+1. Replace `$yourkeyhere` in composer.json with your own ACF key
+2. run `composer require advanced-custom-fields/advanced-custom-fields-pro`
