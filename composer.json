@@ -22,11 +22,11 @@
             "type": "package",
             "package": {
                 "name": "advanced-custom-fields/advanced-custom-fields-pro",
-                "version": "5.2.7",
+                "version": "5.2.8",
                 "type": "wordpress-plugin",
                 "dist": {
                     "type": "zip",
-                    "url": "http://connect.advancedcustomfields.com/index.php?p=pro&a=download&k=b3JkZXJfaWQ9NDEzMTF8dHlwZT1kZXZlbG9wZXJ8ZGF0ZT0yMDE0LTEwLTA0IDE1OjM0OjE4"
+                    "url": "http://connect.advancedcustomfields.com/index.php?p=pro&a=download&k=$yourkeyhere"
                 }
             }
         }
@@ -38,7 +38,6 @@
         "johnpbloch/wordpress": "~4.2",
         "wpackagist-plugin/wordfence": "~6.0.3",
         "wpackagist-plugin/wordpress-importer": "0.6.*",
-        "advanced-custom-fields/advanced-custom-fields-pro": "~5.0",
         "wpackagist-plugin/timber-library": "0.21.*"
     },
     "extra": {
