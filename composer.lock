@@ -114,16 +114,16 @@
         },
         {
             "name": "johnpbloch/wordpress",
-            "version": "4.2.2",
+            "version": "4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/johnpbloch/wordpress.git",
-                "reference": "998358f3b7a2c75caae11ff3c79e514951aac7f6"
+                "reference": "2afe902599538caaa0f1fd7579895dd7cc0ac5f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/998358f3b7a2c75caae11ff3c79e514951aac7f6",
-                "reference": "998358f3b7a2c75caae11ff3c79e514951aac7f6",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/2afe902599538caaa0f1fd7579895dd7cc0ac5f7",
+                "reference": "2afe902599538caaa0f1fd7579895dd7cc0ac5f7",
                 "shasum": ""
             },
             "require": {
@@ -147,7 +147,7 @@
                 "blog",
                 "cms"
             ],
-            "time": "2015-05-07 01:46:09"
+            "time": "2015-08-18 18:16:11"
         },
         {
             "name": "johnpbloch/wordpress-core-installer",
@@ -250,15 +250,15 @@
         },
         {
             "name": "wpackagist-plugin/timber-library",
-            "version": "0.21.5",
+            "version": "0.21.9",
             "source": {
                 "type": "svn",
                 "url": "http://plugins.svn.wordpress.org/timber-library/",
-                "reference": "tags/0.21.5"
+                "reference": "tags/0.21.9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/timber-library.0.21.5.zip",
+                "url": "https://downloads.wordpress.org/plugin/timber-library.0.21.9.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -270,15 +270,15 @@
         },
         {
             "name": "wpackagist-plugin/wordfence",
-            "version": "6.0.10",
+            "version": "6.0.15",
             "source": {
                 "type": "svn",
                 "url": "http://plugins.svn.wordpress.org/wordfence/",
-                "reference": "tags/6.0.10"
+                "reference": "tags/6.0.15"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wordfence.6.0.10.zip",
+                "url": "https://downloads.wordpress.org/plugin/wordfence.6.0.15.zip",
                 "reference": null,
                 "shasum": null
             },

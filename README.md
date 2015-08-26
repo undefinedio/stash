@@ -3,6 +3,14 @@
 =======
 # STASH
 
+Badges         | -
+-------------  | -------------
+Scrutinizer    | [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/undefinedio/stash/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/undefinedio/stash/?branch=master)
+Composer       | [![Dependency Status](https://www.versioneye.com/user/projects/55dd7d7f8d9c4b00180009eb/badge.svg?style=flat)](https://www.versioneye.com/user/projects/55dd7d7f8d9c4b00180009eb)
+NPM            | [![Dependency Status](https://www.versioneye.com/user/projects/55dd7d628d9c4b001b0009dc/badge.svg?style=flat)](https://www.versioneye.com/user/projects/55dd7d628d9c4b001b0009dc)
+Bower          | [![Dependency Status](https://www.versioneye.com/user/projects/55dd7d5a8d9c4b001b0009d9/badge.svg?style=flat)](https://www.versioneye.com/user/projects/55dd7d5a8d9c4b001b0009d9)
+Ruby           | [![Dependency Status](https://www.versioneye.com/user/projects/55dd7d5e8d9c4b00180009e4/badge.svg?style=flat)](https://www.versioneye.com/user/projects/55dd7d5e8d9c4b00180009e4)
+
 ## Requirements
 * PHP >= 5.4
 * Composer [Install](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx)
