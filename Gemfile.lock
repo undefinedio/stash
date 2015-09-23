@@ -27,3 +27,6 @@ DEPENDENCIES
   capistrano (~> 3.2.0)
   capistrano-composer
   capistrano-wpcli
+
+BUNDLED WITH
+   1.10.6
