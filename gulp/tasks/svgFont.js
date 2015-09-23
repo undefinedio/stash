@@ -4,7 +4,7 @@ var _ = require('lodash');
 
 module.exports = function (gulp, paths, plugins, options) {
     return function () {
-        gulp.src(paths.ICON_FONT_PATH + '*.svg')
+        return gulp.src(paths.ICON_FONT_PATH + '*.svg')
             .pipe(plugins.debug({title: 'files:'}))
             .pipe(plugins.iconfont({
                 fontName: 'iconFont', // required

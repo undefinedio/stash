@@ -4,7 +4,7 @@ var banner = require('../functions/banner');
 
 module.exports = function (gulp, paths, plugins, options) {
     return function () {
-        gulp.src(paths.SRC_PATH + 'sass/main.scss')
+        return gulp.src(paths.SRC_PATH + 'sass/main.scss')
             .pipe(plugins.plumber())
             .pipe(plugins.sourcemaps.init())
             .pipe(plugins.sass({
