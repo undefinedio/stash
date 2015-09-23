@@ -15,7 +15,7 @@ module.exports = function (gulp, paths, plugins, options) {
             b.transform(plugins.uglifyify);
         }
 
-        b.bundle()
+        return b.bundle()
             .on('error', function (err) {
                 console.log(err.toString());
                 this.emit('end');

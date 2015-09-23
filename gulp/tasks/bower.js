@@ -20,7 +20,7 @@ module.exports = function (gulp, paths, plugins, options) {
 
         var jsFilter = filterByExtension('js');
 
-        gulp.src(mainFiles)
+        return gulp.src(mainFiles)
             .pipe(plugins.plumber())
             .pipe(jsFilter)
             .pipe(plugins.sourcemaps.init())

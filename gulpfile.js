@@ -37,21 +37,14 @@ var sass = require('./gulp/tasks/sass.js')(gulp, paths, plugins, options);
 var js = require('./gulp/tasks/js.js')(gulp, paths, plugins, options);
 var imagemin = require('./gulp/tasks/imagemin.js')(gulp, paths, plugins, options);
 var svgFont = require('./gulp/tasks/svgFont.js')(gulp, paths, plugins, options);
+var browserSync = require('./gulp/tasks/browserSync.js')(gulp, paths, plugins, options);
 
 gulp.task('bower', bower);
 gulp.task('sass', sass);
 gulp.task('js', js);
 gulp.task('imagemin', imagemin);
 gulp.task('svgFont', svgFont);
-
-// browser-sync task for starting the server.
-gulp.task('browser-sync', function () {
-    plugins.browserSync.init({
-        //browsersync with a php server
-        proxy: options.url,
-        notify: false
-    });
-});
+gulp.task('browser-sync', browserSync);
 
 gulp.task('watch', function () {
     plugins.watch(paths.SRC_PATH + '**/*.scss', function () {
@@ -75,15 +68,5 @@ gulp.task('watch', function () {
     });
 });
 
-gulp.task('default', function () {
-    gulp.start('build');
-    gulp.start('browser-sync');
-    gulp.start('watch');
-});
-
-gulp.task('build', function () {
-    gulp.start('sass');
-    gulp.start('bower');
-    gulp.start('js');
-    gulp.start('imagemin');
-});
+gulp.task('default', ['build', 'browser-sync', 'watch']);
+gulp.task('build', ['sass', 'bower', 'js', 'imagemin']);
