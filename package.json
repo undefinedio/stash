@@ -45,6 +45,7 @@
     "yargs": "^3.9.1"
   },
   "dependencies": {
+    "jquery": "^2.1.4",
     "viewport-units-buggyfill": "^0.5.3"
   }
 }
