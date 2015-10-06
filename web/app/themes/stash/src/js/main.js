@@ -1,2 +1,8 @@
 var bootstrap = require('./bootstrap.js');
-var body = require('./helpers/body');
+var HasClass = require('./helpers/hasClass');
+
+var body = new HasClass('body');
+
+body.has('home', () => {
+    // This code will run only on the homepage
+});
