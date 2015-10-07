@@ -1,6 +1,7 @@
 <?php
 
-function dd($var){
+function dd($var)
+{
     echo '<pre>';
     var_dump($var);
     die();

@@ -1,4 +1,5 @@
 <?php
+namespace Undefined\Stash;
 
 class ImageHelper
 {
@@ -11,5 +12,10 @@ class ImageHelper
     function get($name)
     {
         return get_template_directory_uri() . '/dist/images/' . $name;
+    }
+
+    function display($name)
+    {
+        return "<img src='" . $this->get($name) . "' />";
     }
 }
