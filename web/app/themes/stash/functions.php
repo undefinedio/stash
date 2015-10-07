@@ -1,4 +1,9 @@
 <?php
+namespace Undefined\Stash;
+
+use TimberMenu;
+use TimberSite;
+use Twig_Extension_StringLoader;
 
 if (!class_exists('Timber')) {
     add_action('admin_notices', function () {
@@ -56,8 +61,8 @@ class Stash extends TimberSite
      */
     function removeEmojiSupport()
     {
-        remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
-        remove_action( 'wp_print_styles', 'print_emoji_styles' );
+        remove_action('wp_head', 'print_emoji_detection_script', 7);
+        remove_action('wp_print_styles', 'print_emoji_styles');
     }
 
     /**
@@ -81,7 +86,7 @@ class Stash extends TimberSite
     }
 
     /**
-     * This is where you can add your own fuctions to twig
+     * This is where you can add your own functions to twig
      * @param $twig
      * @return mixed
      */
