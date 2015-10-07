@@ -15,6 +15,7 @@ if (!class_exists('Timber')) {
 
 /* Include global functions */
 include_once 'inc/functions/dd.php';
+include_once 'inc/functions/advancedCustomSearch.php';
 
 /* Include classes */
 include_once 'inc/classes/ImageHelper.php';
@@ -34,6 +35,7 @@ class Stash extends TimberSite
         add_action('init', [$this, 'registerPostTypes']);
         add_action('init', [$this, 'registerTaxonomies']);
         add_action('init', [$this, 'removeEmojiSupport']);
+        add_action('init', [$this, 'acfSearch']);
 
         add_action('wp_enqueue_scripts', [$this, 'themeAssets']);
 
@@ -47,6 +49,16 @@ class Stash extends TimberSite
     {
         foreach (glob(__DIR__ . "/inc/post-types/*.php") as $filename) {
             include_once $filename;
+        }
+    }
+
+    /**
+     * Check if ACF is installed, if so enable search
+     */
+    function acfSearch()
+    {
+        if (!class_exists('acf')) {
+            add_filter('posts_search', 'advanced_custom_search', 500, 2);
         }
     }
 
