@@ -1,14 +1,16 @@
 'use strict';
 
-/* OPTIONS */
-var options = {
-    notifications: true,
-    url: "dev.stash.io/"
-};
 
 var gulp = require('gulp'),
     plugins = require('gulp-load-plugins')(),
-    argv = require('yargs').argv;
+    argv = require('yargs').argv,
+    dotenv = require('dotenv').load();
+
+/* OPTIONS */
+var options = {
+    notifications: true,
+    url: process.env.WP_HOME
+};
 
 /* PATHS */
 var paths = {};
@@ -43,7 +45,7 @@ gulp.task('bower', bower);
 gulp.task('sass', sass);
 gulp.task('js', js);
 gulp.task('imagemin', imagemin);
-gulp.task('svgFont', svgFont);
+gulp.task('svg-font', svgFont);
 gulp.task('browser-sync', browserSync);
 
 gulp.task('watch', function () {
@@ -64,7 +66,7 @@ gulp.task('watch', function () {
     });
 
     plugins.watch(paths.ICON_FONT_PATH + ['**/*.*'], function () {
-        gulp.start('svgFont');
+        gulp.start('svg-font');
     });
 });
 
