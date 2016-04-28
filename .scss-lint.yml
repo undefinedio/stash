@@ -1,0 +1,20 @@
+scss_files: 'web/app/themes/stash/src/sass/**/*.css.scss'
+
+linters:
+  BorderZero:
+    enabled: false
+
+  Indentation:
+    severity: warning
+    width: 4
+
+  PropertySortOrder:
+      enabled: false
+
+  SelectorDepth:
+      enabled: true
+      max_depth: 4
+
+  NestingDepth:
+      enabled: true
+      max_depth: 4
