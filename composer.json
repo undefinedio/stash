@@ -4,14 +4,18 @@
     "license": "MIT",
     "description": "A modern WordPress stack",
     "config": {
-        "preferred-install": "stable",
-        "generate-salts": true
+        "preferred-install": "dist",
+        "secure-http": false
     },
     "autoload": {
-        "psr-0": {"Roots\\Bedrock\\Installer": "scripts"}
+        "psr-0": {
+            "Roots\\Bedrock\\Installer": "scripts"
+        }
     },
     "scripts": {
-        "post-root-package-install": ["Roots\\Bedrock\\Installer::addSalts"]
+        "post-root-package-install": [
+            "Roots\\Bedrock\\Installer::addSalts"
+        ]
     },
     "repositories": [
         {
@@ -22,27 +26,39 @@
             "type": "package",
             "package": {
                 "name": "advanced-custom-fields/advanced-custom-fields-pro",
-                "version": "5.3.0",
+                "version": "5.3.8.1",
                 "type": "wordpress-plugin",
                 "dist": {
                     "type": "zip",
-                    "url": "http://connect.advancedcustomfields.com/index.php?p=pro&a=download&k=$yourkeyhere"
+                    "url": "https://connect.advancedcustomfields.com/index.php?p=pro&a=download"
+                },
+                "require": {
+                    "philippbaschke/acf-pro-installer": "^1.0",
+                    "composer/installers": "^1.0"
                 }
             }
-        }
+        },
     ],
     "require": {
-        "php": ">=5.4",
+        "php": ">=5.5",
         "composer/installers": "~1.0.12",
-        "vlucas/phpdotenv": "~1.0.9",
-        "johnpbloch/wordpress": "~4.2",
-        "wpackagist-plugin/timber-library": "0.21.*"
+        "vlucas/phpdotenv": "^2.0.1",
+        "johnpbloch/wordpress": "4.5.2",
+        "oscarotero/env": "^1.0",
+        "wpackagist-plugin/timber-library": "*",
+        "advanced-custom-fields/advanced-custom-fields-pro": "*"
     },
     "extra": {
         "installer-paths": {
-            "web/app/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
-            "web/app/plugins/{$name}/": ["type:wordpress-plugin"],
-            "web/app/themes/{$name}/": ["type:wordpress-theme"]
+            "web/app/mu-plugins/{$name}/": [
+                "type:wordpress-muplugin"
+            ],
+            "web/app/plugins/{$name}/": [
+                "type:wordpress-plugin"
+            ],
+            "web/app/themes/{$name}/": [
+                "type:wordpress-theme"
+            ]
         },
         "wordpress-install-dir": "web/wp"
     }
