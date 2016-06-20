@@ -2,7 +2,7 @@
 
 module.exports = function (gulp, paths, plugins, options) {
     return function () {
-        return gulp.src(paths.SRC_PATH + 'images/*.**')
+        return gulp.src(paths.IMAGE_PATH + ['**/*.*'])
             .pipe(plugins.debug({title: 'files:'}))
             .pipe(plugins.imagemin({
                 progressive: true,

@@ -1,35 +1,26 @@
 'use strict';
 
-var banner = require('../functions/banner');
+var uglify = require('gulp-uglify');
 
 module.exports = function (gulp, paths, plugins, options) {
     return function () {
-        var b = plugins.browserify({
+        var bundleStream = plugins.browserify({
             entries: paths.SRC_PATH + 'js/main.js',
             debug: true
-        });
+        }).transform(plugins.babelify, {presets: ["es2015"]}).bundle();
 
-        b = b.transform(plugins.babelify);
-
-        if (options.production) {
-            b.transform(plugins.uglifyify);
-        }
-
-        return b.bundle()
-            .on('error', function (err) {
-                console.log(err.toString());
-                this.emit('end');
-            })
+        return bundleStream
+            .on('error', plugins.interceptErrors)
             .pipe(plugins.source('main.js'))
             .pipe(plugins.buffer())
             .pipe(plugins.sourcemaps.init({loadMaps: true}))
-            .pipe(plugins.header(banner))
+            .pipe(plugins.if(options.production, uglify()))
             .pipe(plugins.sourcemaps.write('./'))
             .pipe(gulp.dest(paths.THEME_PATH + 'dist/js/'))
             .pipe(plugins.browserSync.reload({stream: true}))
             .pipe(plugins.if(
                 options.notifications,
                 plugins.notify({message: 'Javascript task complete'}))
-        );
+            );
     };
 };

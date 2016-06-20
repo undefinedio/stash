@@ -1,8 +1,11 @@
-var bootstrap = require('./bootstrap.js');
-var HasClass = require('./helpers/hasClass');
+import "babel-polyfill";
+import buggyfill from 'viewport-units-buggyfill';
+buggyfill.init();
+var $ = global.jQuery = require('jquery');
 
-var body = new HasClass('body');
 
-body.has('home', () => {
-    // This code will run only on the homepage
+var app = require('./app.js');
+
+$(document).ready(function ($) {
+    app.start();
 });
