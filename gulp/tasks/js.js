@@ -18,9 +18,5 @@ module.exports = function (gulp, paths, plugins, options) {
             .pipe(plugins.sourcemaps.write('./'))
             .pipe(gulp.dest(paths.THEME_PATH + 'dist/js/'))
             .pipe(plugins.browserSync.reload({stream: true}))
-            .pipe(plugins.if(
-                options.notifications,
-                plugins.notify({message: 'Javascript task complete'}))
-            );
     };
 };

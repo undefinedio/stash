@@ -11,9 +11,5 @@ module.exports = function (gulp, paths, plugins, options) {
             }))
             .pipe(gulp.dest(paths.DIST_PATH + 'images'))
             .pipe(plugins.browserSync.reload({stream: true}))
-            .pipe(plugins.if(
-                options.notifications,
-                plugins.notify({message: 'Image minification task complete'})
-            ));
     };
 };

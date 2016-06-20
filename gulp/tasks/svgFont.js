@@ -22,9 +22,5 @@ module.exports = function (gulp, paths, plugins, options) {
             })
             .pipe(gulp.dest(paths.DIST_PATH + 'fonts/icon-font/'))
             .pipe(plugins.browserSync.reload({stream: true}))
-            .pipe(plugins.if(
-                options.notifications,
-                plugins.notify({message: 'SVG font task complete'})
-            ));
     };
 };
