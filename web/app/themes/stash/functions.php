@@ -19,11 +19,16 @@ include_once 'inc/functions/advancedCustomSearch.php';
 
 /* Include classes */
 include_once 'inc/classes/ImageHelper.php';
+include_once 'inc/classes/TransientHelper.php';
 
 class Stash extends TimberSite
 {
+    protected $transientHelper;
+
     function __construct()
     {
+        $this->transientHelper = new TransientHelper();
+
         add_theme_support('post-formats');
         add_theme_support('post-thumbnails');
         add_theme_support('menus');
@@ -39,7 +44,19 @@ class Stash extends TimberSite
 
         add_action('wp_enqueue_scripts', [$this, 'themeAssets']);
 
+        add_action('post_updated', [$this, 'clearTransients']);
+        add_action('save_post', [$this, 'clearTransients']);
+        add_action('add_attachment', [$this, 'clearTransients']);
+
         parent::__construct();
+    }
+
+    /**
+     * Clear all transients after post create/update or media upload
+     */
+    function clearTransients()
+    {
+        $this->transientHelper->deleteAll();
     }
 
     /**
