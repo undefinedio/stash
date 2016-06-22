@@ -1,6 +1,5 @@
 'use strict';
 
-
 var gulp = require('gulp'),
     plugins = require('gulp-load-plugins')(),
     argv = require('yargs').argv,
@@ -29,15 +28,28 @@ plugins.source = require('vinyl-source-stream');
 plugins.buffer = require('vinyl-buffer');
 plugins.pngquant = require('imagemin-pngquant');
 plugins.babelify = require('babelify');
-plugins.uglifyify = require('uglifyify');
 plugins.browserSync = require('browser-sync');
+plugins.interceptErrors = function (error) {
+    var args = Array.prototype.slice.call(arguments);
+
+    // Send error to notification center with gulp-notify
+    plugins.notify.onError({
+        title: 'Compile Error',
+        message: '<%= error.message %>'
+    }).apply(this, args);
+
+    // Keep gulp from hanging on this task
+    this.emit('end');
+};
 
 options.production = !!argv.production;
+
 /* TASKS */
 var bower = require('./gulp/tasks/bower.js')(gulp, paths, plugins, options);
 var sass = require('./gulp/tasks/sass.js')(gulp, paths, plugins, options);
 var js = require('./gulp/tasks/js.js')(gulp, paths, plugins, options);
 var imagemin = require('./gulp/tasks/imagemin.js')(gulp, paths, plugins, options);
+var fonts = require('./gulp/tasks/fonts.js')(gulp, paths, plugins);
 var svgFont = require('./gulp/tasks/svgFont.js')(gulp, paths, plugins, options);
 var browserSync = require('./gulp/tasks/browserSync.js')(gulp, paths, plugins, options);
 
@@ -46,6 +58,7 @@ gulp.task('sass', sass);
 gulp.task('js', js);
 gulp.task('imagemin', imagemin);
 gulp.task('svg-font', svgFont);
+gulp.task('fonts', fonts);
 gulp.task('browser-sync', browserSync);
 
 gulp.task('watch', function () {
@@ -65,10 +78,14 @@ gulp.task('watch', function () {
         gulp.start('imagemin');
     });
 
+    plugins.watch(paths.SRC_PATH + 'fonts/**', function () {
+        gulp.start('fonts');
+    });
+
     plugins.watch(paths.ICON_FONT_PATH + ['**/*.*'], function () {
         gulp.start('svg-font');
     });
 });
 
 gulp.task('default', ['build', 'browser-sync', 'watch']);
-gulp.task('build', ['sass', 'bower', 'js', 'imagemin']);
+gulp.task('build', ['sass', 'bower', 'js', 'fonts', 'imagemin']);

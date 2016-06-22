@@ -2,7 +2,7 @@
 
 module.exports = function (gulp, paths, plugins, options) {
     return function () {
-        return gulp.src(paths.SRC_PATH + 'images/*.**')
+        return gulp.src(paths.IMAGE_PATH + ['**/*.*'])
             .pipe(plugins.debug({title: 'files:'}))
             .pipe(plugins.imagemin({
                 progressive: true,
@@ -11,9 +11,5 @@ module.exports = function (gulp, paths, plugins, options) {
             }))
             .pipe(gulp.dest(paths.DIST_PATH + 'images'))
             .pipe(plugins.browserSync.reload({stream: true}))
-            .pipe(plugins.if(
-                options.notifications,
-                plugins.notify({message: 'Image minification task complete'})
-            ));
     };
 };

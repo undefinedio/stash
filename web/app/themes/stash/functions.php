@@ -123,6 +123,10 @@ class Stash extends TimberSite
         $vendorCssExists = file_exists(get_template_directory() . '/dist/css/vendor.css');
         $mainCssDependencies = [];
 
+        if (!is_admin()) {
+            wp_deregister_script('jquery');
+        }
+
         if ($vendorJsExists) {
             wp_enqueue_script('stashVendorJs', get_template_directory_uri() . '/dist/js/vendor.js', [], '1.0.0', true);
             array_push($mainJsDependencies, 'stashVendorJs');

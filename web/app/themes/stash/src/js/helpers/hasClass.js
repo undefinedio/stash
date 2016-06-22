@@ -1,12 +1,12 @@
-var $ = require('jquery');
+import $ from 'jquery';
 
 class HasClass {
-    constructor (selector) {
+    constructor(selector) {
         this.$ = $(selector);
     }
 
-    has (className, cb) {
-        if(this.$.hasClass(className)) {
+    has(className, cb) {
+        if (this.$.hasClass(className)) {
             cb();
         }
     }
