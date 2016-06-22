@@ -35,9 +35,5 @@ module.exports = function (gulp, paths, plugins, options) {
             .pipe(plugins.sourcemaps.write('./'))
             .pipe(plugins.browserSync.reload({stream: true}))
             .pipe(gulp.dest(paths.THEME_PATH))
-            .pipe(plugins.if(
-                options.notifications,
-                plugins.notify({message: 'Bower task complete'}))
-        );
     };
 };
