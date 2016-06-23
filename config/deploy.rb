@@ -28,7 +28,7 @@ namespace :deploy do
   task :build do
     run_locally do
       within fetch(:local_theme_path) do
-        execute :gulp, :build
+        execute "gulp build --production"
       end
     end
   end
