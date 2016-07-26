@@ -3,3 +3,7 @@ $column: 90px;
 $gutter: 30px;
 $grid-columns: 12;
 $max-width: em(1088);
+
+//uncomment next line to soo grid
+//$visual-grid: true !global;
+$visual-grid-index: front !global;
