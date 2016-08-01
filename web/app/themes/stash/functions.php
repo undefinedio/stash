@@ -144,22 +144,22 @@ class Stash extends TimberSite
             wp_deregister_script('jquery');
         }
 
-        if ($vendorJsExists) {
-            wp_enqueue_script('stashVendorJs', get_template_directory_uri() . '/dist/js/vendor.js', [], '1.0.0', true);
+         if ($vendorJsExists) {
+            wp_enqueue_script('stashVendorJs', get_template_directory_uri() . '/dist/js/vendor.js', [], filemtime(get_stylesheet_directory() . '/dist/js/vendor.js'), true);
             array_push($mainJsDependencies, 'stashVendorJs');
         }
 
         if ($mainJsExists) {
-            wp_enqueue_script('stashMainJs', get_template_directory_uri() . '/dist/js/main.js', $mainJsDependencies, '1.0.0', true);
+            wp_enqueue_script('stashMainJs', get_template_directory_uri() . '/dist/js/main.js', $mainJsDependencies, filemtime(get_stylesheet_directory() . '/dist/js/main.js'), true);
         }
 
         if ($vendorCssExists) {
-            wp_enqueue_style('stashVendorCss', get_template_directory_uri() . '/dist/css/vendor.css', [], '1.0.0');
+            wp_enqueue_style('stashVendorCss', get_template_directory_uri() . '/dist/css/vendor.css', [], filemtime(get_stylesheet_directory() . '/dist/css/vendor.css'));
             array_push($mainCssDependencies, 'stashVendorCss');
         }
 
         if ($mainCssExists) {
-            wp_enqueue_style('stashMainCss', get_template_directory_uri() . '/dist/css/main.css', $mainCssDependencies, '1.0.0');
+            wp_enqueue_style('stashMainCss', get_template_directory_uri() . '/dist/css/main.css', $mainCssDependencies, filemtime(get_stylesheet_directory() . '/dist/css/main.css'));
         }
     }
 
