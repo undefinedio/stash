@@ -1,5 +1,5 @@
 // Options for header
-$header-color: rgb(51, 51, 51);
+$header-background-color: rgb(51, 51, 51);
 $header-font-color: white;
 $header-animation-time: .5s;
 $header-fixed: true;
@@ -35,7 +35,7 @@ $hamburger-type: collapse; // Choose hamburger animation you want https://jonsuh
         width: 100%;
     }
 
-    background: $header-color;
+    background: $header-background-color;
 
     .hamburger {
         @extend .hamburger--#{$hamburger-type};
@@ -52,14 +52,14 @@ $hamburger-type: collapse; // Choose hamburger animation you want https://jonsuh
     }
 
     .wrapper {
-        @include outer-container;
-
         height: map-get($header-height, mobile);
-        padding: map-get($header-padding, mobile);
+        padding-top: map-get($header-padding, mobile);
+        padding-bottom: map-get($header-padding, mobile);
 
         @include media($large-screen-up) {
             height: map-get($header-height, desktop);
-            padding: map-get($header-padding, desktop);
+            padding-top: map-get($header-padding, desktop);
+            padding-bottom: map-get($header-padding, desktop);
         }
     }
 
@@ -86,7 +86,7 @@ $hamburger-type: collapse; // Choose hamburger animation you want https://jonsuh
     top: -100%;
     bottom: 100%;
     position: fixed;
-    background: $header-color;
+    background: $header-background-color;
     transition: all $header-animation-time ease;
     z-index: $navigation-overlay-z-index;
 
@@ -100,6 +100,10 @@ $hamburger-type: collapse; // Choose hamburger animation you want https://jonsuh
         a {
             line-height: map-get($header-height, desktop) - (2 * map-get($header-padding, desktop));
             padding: 0 1em;
+
+            &:last-child {
+                padding-right: 0;
+            }
         }
 
         ul {
