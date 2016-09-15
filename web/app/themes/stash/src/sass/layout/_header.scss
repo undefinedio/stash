@@ -1,0 +1,135 @@
+// Options for header
+$header-color: rgb(51, 51, 51);
+$header-font-color: white;
+$header-animation-time: .5s;
+$header-fixed: true;
+$header-height: (
+    mobile: 100px,
+    desktop: 125px
+);
+$header-padding: (
+    mobile: 15px,
+    desktop: 30px
+);
+$navigation-overlay-z-index: 20;
+$hamburger-width: 40px;
+$hamburger-type: collapse; // Choose hamburger animation you want https://jonsuh.com/hamburgers
+// End options
+
+// HEADER SPACING
+@if $header-fixed {
+    body {
+        padding-top: map-get($header-height, mobile);
+
+        @include media($large-screen-up) {
+            padding-top: map-get($header-height, desktop);
+        }
+    }
+}
+
+// MAIN HEADER
+.main-header {
+    @if $header-fixed {
+        position: fixed;
+        top: 0;
+        width: 100%;
+    }
+
+    background: $header-color;
+
+    .hamburger {
+        @extend .hamburger--#{$hamburger-type};
+
+        vertical-align: top;
+        outline: none;
+        float: right;
+        z-index: $navigation-overlay-z-index + 1;
+        position: relative;
+
+        @include media($large-screen-up) {
+            display: none;
+        }
+    }
+
+    .wrapper {
+        @include outer-container;
+
+        height: map-get($header-height, mobile);
+        padding: map-get($header-padding, mobile);
+
+        @include media($large-screen-up) {
+            height: map-get($header-height, desktop);
+            padding: map-get($header-padding, desktop);
+        }
+    }
+
+    .logo,
+    svg,
+    img {
+        height: 100%;
+    }
+
+    path {
+        fill: $header-font-color;
+    }
+
+    .logo {
+        display: inline-block;
+    }
+}
+
+// MAIN NAVIGATION
+.nav-main {
+    @extend %overlay;
+    @extend %vertical-align;
+
+    top: -100%;
+    bottom: 100%;
+    position: fixed;
+    background: $header-color;
+    transition: all $header-animation-time ease;
+    z-index: $navigation-overlay-z-index;
+
+    @include media($large-screen-up) {
+        top: auto;
+        position: relative;
+        display: inline-block;
+        vertical-align: top;
+        float: right;
+
+        a {
+            line-height: map-get($header-height, desktop) - (2 * map-get($header-padding, desktop));
+            padding: 0 1em;
+        }
+
+        ul {
+            margin: 0;
+        }
+
+        .nav-item {
+            display: inline-block;
+        }
+    }
+
+    a {
+        width: 100%;
+        text-align: center;
+        color: $header-font-color;
+        display: block;
+    }
+
+    .nav-open & {
+        top: 0;
+        bottom: 0;
+    }
+}
+
+//do not the lines below
+$hamburger-types: ($hamburger-type);
+$hamburger-layer-spacing: $hamburger-width / 6.6;
+$hamburger-layer-height: $hamburger-width / 10;
+$hamburger-layer-width: $hamburger-width;
+$hamburger-hover-transition-duration: $header-animation-time;
+$hamburger-layer-color: $header-font-color;
+$hamburger-padding-y: (map-get($header-height, mobile) - (map-get($header-padding, mobile) * 2)) / 2 - $hamburger-width / 3;
+@import '../../../bower/css-hamburgers/_sass/hamburgers/hamburgers';

@@ -21,6 +21,7 @@
     }
   },
   "dependencies": {
-    "sass-flex-mixin": "~1.0.1"
+    "sass-flex-mixin": "~1.0.1",
+    "css-hamburgers": "^0.5.0"
   }
 }

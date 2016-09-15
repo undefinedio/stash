@@ -1,6 +1,16 @@
-<header class="header">
+<header class="main-header">
     {% block header %}
         <div class="wrapper">
+            <div class="logo">
+                <a href="/">
+                    {{ image.display('logo.svg') }}
+                </a>
+            </div>
+            <button class="hamburger js-hamburger" type="button">
+              <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+              </span>
+            </button>
             <nav id="nav-main" class="nav-main" role="navigation">
                 <ul class="nav">
                     {% for item in menu.get_items %}
