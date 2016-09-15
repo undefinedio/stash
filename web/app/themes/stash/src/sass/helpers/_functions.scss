@@ -5,3 +5,9 @@
     bottom: 0;
     right: 0;
 }
+
+%vertical-align {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
