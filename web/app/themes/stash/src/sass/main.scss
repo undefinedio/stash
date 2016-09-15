@@ -1,34 +1,26 @@
 @import "bourbon";
 @import "helpers/grid-settings";
 @import "neat";
-
 // Sass utilities
 @import "helpers/variables";
 @import "helpers/functions";
 @import "helpers/mixins";
-@import "../../bower/sass-flex-mixin/flex";
+@import "../../bower/sass-flex-mixin/flexbox";
 @import "helpers/helpers";
 @import "helpers/breakpoints";
-
 //Media
 @import "media/images";
- 
 // Base stuff
 @import "base/reset";
 @import "base/typography";
-
 // Layout stuff
 @import "layout/grid";
 @import "layout/header";
 @import "layout/footer";
 @import "layout/forms";
- 
 // Components and modules
 @import "components/buttons";
-@import "components/navigation";
- 
 // Page-specific stylesheets
 @import "pages/home";
- 
-// Themes 
+// Themes
 @import "themes/theme";
