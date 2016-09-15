@@ -9,7 +9,7 @@
 
 {% include 'partials/header.twig' %}
 
-<section id="content" role="main" class="content-wrapper">
+<section id="content" role="main" class="content-wrapper row">
     {% if title %}<h1>{{ title }}</h1>{% endif %}
     <div class="wrapper {{ sidebar_class }}">
         {% block content %}
