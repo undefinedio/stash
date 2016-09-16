@@ -7,11 +7,13 @@
 function list_searcheable_acf()
 {
     $list_searcheable_acf = array("title", "sub_title", "excerpt_short", "excerpt_long", "xyz", "myACF");
+
     return $list_searcheable_acf;
 }
 
 /**
- * [advanced_custom_search search that encompasses ACF/advanced custom fields and taxonomies and split expression before request]
+ * [advanced_custom_search search that encompasses ACF/advanced custom fields and taxonomies and split expression
+ * before request]
  * @param  [query-part/string]      $where    [the initial "where" part of the search query]
  * @param  [object]                 $wp_query []
  * @return [query-part/string]      $where    [the "where" part of the search query as we customized]
@@ -32,7 +34,7 @@ function advanced_custom_search($where, &$wp_query)
     // explode search expression to get search terms
     $exploded = explode(' ', $terms);
 
-    if ($exploded === FALSE || count($exploded) == 0) {
+    if ($exploded === false || count($exploded) == 0) {
         $exploded = array(0 => $terms);
     }
 
@@ -42,7 +44,7 @@ function advanced_custom_search($where, &$wp_query)
     // get searcheable_acf, a list of advanced custom fields you want to search content in
     $list_searcheable_acf = list_searcheable_acf();
 
-    foreach ($exploded as $tag) :
+    foreach ($exploded as $tag) {
         $where .= "
           AND (
             (wp_posts.post_title LIKE '%$tag%')
@@ -52,17 +54,14 @@ function advanced_custom_search($where, &$wp_query)
 	              WHERE post_id = wp_posts.ID
 	                AND (";
 
-        foreach ($list_searcheable_acf as $searcheable_acf) :
-            if ($searcheable_acf == $list_searcheable_acf[0]):
+        foreach ($list_searcheable_acf as $searcheable_acf) {
+            if ($searcheable_acf == $list_searcheable_acf[0]) {
                 $where .= " (meta_key LIKE '%" . $searcheable_acf . "%' AND meta_value LIKE '%$tag%') ";
-            else {
-                :
+            } else {
                 $where .= " OR (meta_key LIKE '%" . $searcheable_acf . "%' AND meta_value LIKE '%$tag%') ";
             }
-            endif;
-        endforeach;
 
-        $where .= ")
+            $where .= ")
             )
             OR EXISTS (
               SELECT * FROM wp_comments
@@ -84,7 +83,8 @@ function advanced_custom_search($where, &$wp_query)
               	AND wp_terms.name LIKE '%$tag%'
             )
         )";
-    endforeach;
+        }
 
-    return $where;
+        return $where;
+    }
 }
