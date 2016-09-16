@@ -55,8 +55,10 @@ function advanced_custom_search($where, &$wp_query)
         foreach ($list_searcheable_acf as $searcheable_acf) :
             if ($searcheable_acf == $list_searcheable_acf[0]):
                 $where .= " (meta_key LIKE '%" . $searcheable_acf . "%' AND meta_value LIKE '%$tag%') ";
-            else :
+            else {
+                :
                 $where .= " OR (meta_key LIKE '%" . $searcheable_acf . "%' AND meta_value LIKE '%$tag%') ";
+            }
             endif;
         endforeach;
 

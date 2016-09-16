@@ -6,4 +6,4 @@ define('SCRIPT_DEBUG', false);
 define('DISALLOW_FILE_EDIT', true);
 define('DISALLOW_FILE_MODS', true); // this disables all file modifications including updates and update notifications
 //auto updates
-define( 'WP_AUTO_UPDATE_CORE', true );
+define('WP_AUTO_UPDATE_CORE', true);
