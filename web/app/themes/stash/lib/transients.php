@@ -79,3 +79,15 @@ class TransientHelper
         return $transients;
     }
 }
+
+$transientHelper = new TransientHelper();
+
+add_action('post_updated', function () use ($transientHelper) {
+    $transientHelper->deleteAll();
+});
+add_action('save_post', function () use ($transientHelper) {
+    $transientHelper->deleteAll();
+});
+add_action('add_attachment', function () use ($transientHelper) {
+    $transientHelper->deleteAll();
+});
