@@ -6,8 +6,8 @@ use TimberSite;
 use Twig_Extension_StringLoader;
 
 if (!class_exists('Timber')) {
-    add_action('admin_notices', function () {
-        echo '<div class="error"><p>Timber not activated. Make sure you activate the plugin in <a href="' . esc_url(admin_url('plugins.php#timber')) . '">' . esc_url(admin_url('plugins.php')) . '</a></p></div>';
+    add_action('admin_notices', function() {
+        echo '<div class="error"><p>Timber not activated. Make sure you activate the plugin in <a href="'.esc_url(admin_url('plugins.php#timber')).'">'.esc_url(admin_url('plugins.php')).'</a></p></div>';
     });
 
     return;
@@ -64,7 +64,7 @@ class Stash extends TimberSite
      */
     function registerPostTypes()
     {
-        foreach (glob(__DIR__ . "/inc/post-types/*.php") as $filename) {
+        foreach (glob(__DIR__."/inc/post-types/*.php") as $filename) {
             include_once $filename;
         }
     }
@@ -132,19 +132,19 @@ class Stash extends TimberSite
      */
     function themeAssets()
     {
-        $vendorJsExists = file_exists(get_template_directory() . '/dist/js/vendor.js');
-        $mainJsExists = file_exists(get_template_directory() . '/dist/js/main.js');
+        $vendorJsExists = file_exists(get_template_directory().'/dist/js/vendor.js');
+        $mainJsExists = file_exists(get_template_directory().'/dist/js/main.js');
         $mainJsDependencies = [];
 
-        $mainCssExists = file_exists(get_template_directory() . '/dist/css/main.css');
-        $vendorCssExists = file_exists(get_template_directory() . '/dist/css/vendor.css');
+        $mainCssExists = file_exists(get_template_directory().'/dist/css/main.css');
+        $vendorCssExists = file_exists(get_template_directory().'/dist/css/vendor.css');
         $mainCssDependencies = [];
 
         if (!is_admin()) {
             wp_deregister_script('jquery');
         }
 
-         if ($vendorJsExists) {
+            if ($vendorJsExists) {
             wp_enqueue_script('stashVendorJs', get_template_directory_uri() . '/dist/js/vendor.js', [], filemtime(get_stylesheet_directory() . '/dist/js/vendor.js'), true);
             array_push($mainJsDependencies, 'stashVendorJs');
         }
