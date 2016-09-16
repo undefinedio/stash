@@ -47,7 +47,8 @@
         "roots/wp-password-bcrypt": "^1.0.0",
         "oscarotero/env": "^1.0",
         "wpackagist-plugin/timber-library": "*",
-        "advanced-custom-fields/advanced-custom-fields-pro": "*"
+        "advanced-custom-fields/advanced-custom-fields-pro": "*",
+        "roots/soil": "^3.7"
     },
     "extra": {
         "installer-paths": {

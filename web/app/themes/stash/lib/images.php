@@ -11,7 +11,7 @@ class ImageHelper
      */
     function get($name)
     {
-        return get_template_directory_uri().'/dist/images/'.$name;
+        return get_template_directory_uri() . '/dist/images/' . $name;
     }
 
     /**
@@ -28,7 +28,7 @@ class ImageHelper
         if (strpos($imageUrl, '.svg') !== false) {
             return file_get_contents($imageUrl);
         } else {
-            return "<img src='".$this->get($name)."' />";
+            return "<img src='" . $this->get($name) . "' />";
         }
     }
 }
