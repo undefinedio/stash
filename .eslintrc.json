@@ -1,0 +1,35 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "modules": true
+    }
+  },
+
+  "extends": ["airbnb"],
+
+  "rules": {
+    // enable additional rules
+    "indent": ["error", 4],
+    "arrow-body-style": [2, "as-needed"],
+    "no-param-reassign": 0,
+    "eol-last": 0
+  },
+  "globals": {
+    "angular": true,
+    "window": true,
+    "React": true,
+    "ga": true,
+    "document": true,
+    "localStorage": true,
+    "google": true,
+    "Slideout": true,
+    "hopscotch": true,
+    "_": true,
+    "imagesLoaded": true,
+    "Masonry": true,
+    "moment": true,
+    "scrollMonitor": true
+  }
+}

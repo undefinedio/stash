@@ -1,11 +1,11 @@
-import "babel-polyfill";
+import 'babel-polyfill';
 import buggyfill from 'viewport-units-buggyfill';
+import app from './app.js';
+
+const $ = global.jQuery = require('jquery');
+
 buggyfill.init();
-var $ = global.jQuery = require('jquery');
 
-
-var app = require('./app.js');
-
-$(document).ready(function ($) {
+$(document).ready(() => {
     app.start();
 });
