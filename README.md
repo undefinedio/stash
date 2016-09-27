@@ -6,13 +6,13 @@
 Badges         | -
 -------------  | -------------
 Scrutinizer    | [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/undefinedio/stash/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/undefinedio/stash/?branch=master)
-Composer       | [![Dependency Status](https://www.versioneye.com/user/projects/55dd7d7f8d9c4b00180009eb/badge.svg?style=flat)](https://www.versioneye.com/user/projects/55dd7d7f8d9c4b00180009eb)
-NPM            | [![Dependency Status](https://www.versioneye.com/user/projects/55dd7d628d9c4b001b0009dc/badge.svg?style=flat)](https://www.versioneye.com/user/projects/55dd7d628d9c4b001b0009dc)
-Bower          | [![Dependency Status](https://www.versioneye.com/user/projects/55dd7d5a8d9c4b001b0009d9/badge.svg?style=flat)](https://www.versioneye.com/user/projects/55dd7d5a8d9c4b001b0009d9)
-Ruby           | [![Dependency Status](https://www.versioneye.com/user/projects/55dd7d5e8d9c4b00180009e4/badge.svg?style=flat)](https://www.versioneye.com/user/projects/55dd7d5e8d9c4b00180009e4)
+Composer       | [![Dependency Status](https://www.versioneye.com/user/projects/57dbb14a500a3100425c95ce/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/57dbb14a500a3100425c95ce)
+NPM            | [![Dependency Status](https://www.versioneye.com/user/projects/57dbb14a500a3100425c95ce/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/57dbb14a500a3100425c95ce)
+Bower          | [![Dependency Status](https://www.versioneye.com/user/projects/57dbb14a500a3100425c95ce/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/57dbb14a500a3100425c95ce)
+Ruby           | [![Dependency Status](https://www.versioneye.com/user/projects/57dbb14a500a3100425c95ce/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/57dbb14a500a3100425c95ce)
 
 ## Requirements
-* PHP >= 5.4
+* PHP >= 5.5
 * Composer [Install](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx)
 * Ruby >= 1.9 [Install](https://www.ruby-lang.org/en/documentation/installation/)
 * Bundler `gem install bundler`
@@ -26,12 +26,3 @@ Ruby           | [![Dependency Status](https://www.versioneye.com/user/projects/
 4. Set your site vhost document root to `/path/to/site/web/` (`/path/to/site/current/web/` if using deploys)
 5. run `npm install`
 5. run `gulp`
-
-## Automated installation
-1. Clone the git repo - `git clone https://github.com/undefinedio/stash.git`
-2. Run `composer install`
-2. Run `node ./bin/setup.js`
-
-## To use ACF pro
-1. Replace `$yourkeyhere` in composer.json with your own ACF key
-2. run `composer require advanced-custom-fields/advanced-custom-fields-pro`

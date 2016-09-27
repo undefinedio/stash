@@ -26,7 +26,7 @@ if (file_exists($root_dir . '/.env')) {
  */
 define('WP_ENV', env('WP_ENV') ?: 'development');
 
-$env_config = __DIR__ . '/environments/' . WP_ENV . '.php';
+$env_config = __DIR__.'/environments/'.WP_ENV.'.php';
 
 if (file_exists($env_config)) {
     require_once $env_config;
@@ -42,8 +42,8 @@ define('WP_SITEURL', env('WP_SITEURL'));
  * Custom Content Directory
  */
 define('CONTENT_DIR', '/app');
-define('WP_CONTENT_DIR', $webroot_dir . CONTENT_DIR);
-define('WP_CONTENT_URL', WP_HOME . CONTENT_DIR);
+define('WP_CONTENT_DIR', $webroot_dir.CONTENT_DIR);
+define('WP_CONTENT_URL', WP_HOME.CONTENT_DIR);
 
 /**
  * DB settings
@@ -79,5 +79,5 @@ define('DISALLOW_FILE_EDIT', true);
  * Bootstrap WordPress
  */
 if (!defined('ABSPATH')) {
-    define('ABSPATH', $webroot_dir . '/wp/');
+    define('ABSPATH', $webroot_dir.'/wp/');
 }
