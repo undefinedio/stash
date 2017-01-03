@@ -23,7 +23,7 @@ module.exports = {
     debug: true,
     devtool: PROD ? 'source-map' : 'cheap-module-source-map',
     noInfo: false,
-    entry: PROD ? paths.SRC_PATH + 'js/main.js' :
+    entry: PROD ? [paths.SRC_PATH + 'js/main.js'] :
         [
             'webpack-hot-middleware/client?http://${HOST}:${PORT}&reload=true', // reloads the page if hot module reloading fails.
             paths.SRC_PATH + 'js/main.js',
@@ -74,7 +74,8 @@ module.exports = {
                     paths.SRC_PATH,
                     path.resolve(__dirname, '../node_modules')
                 ],
-                loaders: ['babel']
+                loaders: ['babel'],
+                plugins: ['transform-runtime'],
             }
         ]
     }

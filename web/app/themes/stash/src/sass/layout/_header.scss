@@ -1,3 +1,5 @@
+@import "../../../../../../../node_modules/sass-burger/burger";
+
 // Options for header
 $header-background-color: rgb(51, 51, 51);
 $header-font-color: white;
@@ -12,8 +14,7 @@ $header-padding: (
     desktop: 30px
 );
 $navigation-overlay-z-index: 20;
-$hamburger-width: 40px;
-$hamburger-type: collapse; // Choose hamburger animation you want https://jonsuh.com/hamburgers
+
 // End options
 
 // HEADER SPACING
@@ -38,13 +39,19 @@ $hamburger-type: collapse; // Choose hamburger animation you want https://jonsuh
     background: $header-background-color;
 
     .hamburger {
-        @extend .hamburger--#{$hamburger-type};
-
         vertical-align: top;
         outline: none;
         float: right;
         z-index: $navigation-overlay-z-index + 1;
         position: relative;
+
+        .hamburger-icon {
+            @include burger(25px, 3px, 5px, $header-font-color);
+        }
+
+        &.is-active .hamburger-icon {
+            @include burger-to-cross;
+        }
 
         @include media($large-screen-up) {
             display: none;
@@ -128,13 +135,3 @@ $hamburger-type: collapse; // Choose hamburger animation you want https://jonsuh
         bottom: 0;
     }
 }
-
-//do not the lines below
-$hamburger-types: ($hamburger-type);
-$hamburger-layer-spacing: $hamburger-width / 6.6;
-$hamburger-layer-height: $hamburger-width / 10;
-$hamburger-layer-width: $hamburger-width;
-$hamburger-hover-transition-duration: $header-animation-time;
-$hamburger-layer-color: $header-font-color;
-$hamburger-padding-y: (map-get($header-height, mobile) - (map-get($header-padding, mobile) * 2)) / 2 - $hamburger-width / 3;
-@import '../../../bower/css-hamburgers/_sass/hamburgers/hamburgers';

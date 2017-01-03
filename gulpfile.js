@@ -19,6 +19,10 @@ paths.DIST_PATH = paths.THEME_PATH + 'dist/';
 
 /* PLUGINS */
 plugins.neat = require('node-neat').includePaths;
+plugins.bourbon = require('node-bourbon').includePaths;
+plugins.Sassburgers = require.resolve('sass-burger');
+
+
 plugins.pngquant = require('imagemin-pngquant');
 plugins.browserSync = require('browser-sync').create();
 
@@ -49,7 +53,7 @@ gulp.task('sass', sass);
 gulp.task('js', js);
 gulp.task('fonts', fonts);
 gulp.task('imagemin', imagemin);
-// gulp.task('svg-font', svgFont);
+gulp.task('svg-font', svgFont);
 gulp.task('browser-sync', browserSync);
 
 gulp.task('watch', function () {
@@ -71,4 +75,4 @@ gulp.task('watch', function () {
 });
 
 gulp.task('default', ['build', 'browser-sync', 'watch']);
-gulp.task('build', ['sass',  'js', 'fonts', 'imagemin']);
+gulp.task('build', ['sass',  'js', 'fonts', 'svg-font', 'imagemin']);
