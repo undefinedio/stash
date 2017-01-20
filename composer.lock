@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9e1f3d6fdc5ae4e2c9a2da93ef087f27",
-    "content-hash": "cce6b379d2d7ea359f47be5599bd5404",
+    "hash": "3c974f159f00fea848aa4bb108e29a46",
+    "content-hash": "2b9e1a2de3afafb2692b71b02e5d5b99",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
@@ -131,16 +131,16 @@
         },
         {
             "name": "johnpbloch/wordpress",
-            "version": "4.6.1",
+            "version": "4.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/johnpbloch/wordpress.git",
-                "reference": "aca8da84b4a699b16b8bcc96d2bc794a4c7b5ae3"
+                "reference": "15962104c4d48958e9f78effcbe0fab61eaff3d5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/aca8da84b4a699b16b8bcc96d2bc794a4c7b5ae3",
-                "reference": "aca8da84b4a699b16b8bcc96d2bc794a4c7b5ae3",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/15962104c4d48958e9f78effcbe0fab61eaff3d5",
+                "reference": "15962104c4d48958e9f78effcbe0fab61eaff3d5",
                 "shasum": ""
             },
             "require": {
@@ -164,7 +164,7 @@
                 "blog",
                 "cms"
             ],
-            "time": "2016-09-07 15:01:47"
+            "time": "2017-01-11 16:46:58"
         },
         {
             "name": "johnpbloch/wordpress-core-installer",
@@ -465,17 +465,37 @@
             "time": "2016-09-01 10:05:43"
         },
         {
-            "name": "wpackagist-plugin/timber-library",
-            "version": "1.1.6",
+            "name": "wpackagist-plugin/slate-admin-theme",
+            "version": "1.1.7",
             "source": {
                 "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/timber-library/",
-                "reference": "tags/1.1.6"
+                "url": "https://plugins.svn.wordpress.org/slate-admin-theme/",
+                "reference": "tags/1.1.7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/timber-library.1.1.6.zip",
-                "reference": "tags/1.1.6",
+                "url": "https://downloads.wordpress.org/plugin/slate-admin-theme.1.1.7.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/slate-admin-theme/"
+        },
+        {
+            "name": "wpackagist-plugin/timber-library",
+            "version": "1.2.1",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/timber-library/",
+                "reference": "tags/1.2.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/timber-library.1.2.1.zip",
+                "reference": null,
                 "shasum": null
             },
             "require": {
