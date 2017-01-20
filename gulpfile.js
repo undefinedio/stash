@@ -22,7 +22,6 @@ plugins.neat = require('node-neat').includePaths;
 plugins.bourbon = require('node-bourbon').includePaths;
 plugins.Sassburgers = require.resolve('sass-burger');
 
-
 plugins.pngquant = require('imagemin-pngquant');
 plugins.browserSync = require('browser-sync').create();
 
@@ -42,7 +41,8 @@ plugins.interceptErrors = function (error) {
 options.production = !!argv.production;
 
 /* TASKS */
-var sass = require('./gulp/tasks/sass.js')(gulp, paths, plugins, options);
+var sass = require('./gulp/tasks/sass.js')(gulp, paths, plugins, options, 'sass/main.scss', '/css');
+var sassAdmin = require('./gulp/tasks/sass.js')(gulp, paths, plugins, options, 'sass/admin/main.scss', '/css/admin');
 var js = require('./gulp/tasks/js.js')(gulp, paths, plugins, options);
 var fonts = require('./gulp/tasks/fonts.js')(gulp, paths, plugins);
 var svgFont = require('./gulp/tasks/svgFont.js')(gulp, paths, plugins, options);
@@ -50,6 +50,7 @@ var imagemin = require('./gulp/tasks/imagemin.js')(gulp, paths, plugins, options
 var browserSync = require('./gulp/tasks/browserSync.js')(gulp, paths, plugins, options);
 
 gulp.task('sass', sass);
+gulp.task('sass-admin', sassAdmin);
 gulp.task('js', js);
 gulp.task('fonts', fonts);
 gulp.task('imagemin', imagemin);
@@ -59,6 +60,7 @@ gulp.task('browser-sync', browserSync);
 gulp.task('watch', function () {
     plugins.watch(paths.SRC_PATH + '**/*.scss', function () {
         gulp.start('sass');
+        gulp.start('sass-admin');
     });
 
     plugins.watch(paths.IMAGE_PATH + ['**/*.*'], function () {
@@ -75,4 +77,4 @@ gulp.task('watch', function () {
 });
 
 gulp.task('default', ['build', 'browser-sync', 'watch']);
-gulp.task('build', ['sass',  'js', 'fonts', 'svg-font', 'imagemin']);
+gulp.task('build', ['sass', 'sass-admin', 'js', 'fonts', 'imagemin', 'svg-font']);

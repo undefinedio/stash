@@ -12,6 +12,7 @@ $stash_includes = [
     'lib/setup.php',      // Theme setup
     'lib/images.php',     // Helper for retrieving Images
     'lib/custom.php',     // Load custom post types and taxonomies
+    'lib/admin.php',      // Cleaner admin pages
     'lib/acf.php',        // Functions related to ACF
     'lib/transients.php', // Clear all transients on database changes
 ];
