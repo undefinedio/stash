@@ -2,6 +2,7 @@
 
 module.exports = function (gulp, paths, plugins, options) {
     return function () {
+
         return gulp.src(paths.SRC_PATH + 'sass/main.scss')
             .pipe(plugins.plumber())
             .pipe(plugins.if(!options.production, plugins.sourcemaps.init()))

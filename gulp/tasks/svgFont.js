@@ -1,7 +1,5 @@
 'use strict';
 
-var _ = require('lodash');
-
 module.exports = function (gulp, paths, plugins, options) {
     return function () {
         return gulp.src(paths.ICON_FONT_PATH + '*.svg')

@@ -6,11 +6,9 @@
                     {{ image.display('logo.svg') }}
                 </a>
             </div>
-            <button class="hamburger js-hamburger" type="button">
-              <span class="hamburger-box">
-                <span class="hamburger-inner"></span>
-              </span>
-            </button>
+            <a href="#" class="hamburger js-hamburger">
+                <span class="hamburger-icon"></span>
+            </a>
             <nav id="nav-main" class="nav-main" role="navigation">
                 <ul class="nav">
                     {% for item in menu.get_items %}
