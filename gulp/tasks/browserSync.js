@@ -32,7 +32,7 @@ module.exports = function (gulp, paths, plugins, options) {
                         publicPath: webpackConfig.output.publicPath,
                         noInfo: true,
                         hot: true,
-                        watchDelay: 10,
+                        watchOptions: {aggregateTimeout: 10},
                         stats: {colors: true}
                     }),
 

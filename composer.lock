@@ -4,15 +4,15 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3c974f159f00fea848aa4bb108e29a46",
-    "content-hash": "2b9e1a2de3afafb2692b71b02e5d5b99",
+    "hash": "c4d05f6e04d3b3b67c9934641d06d010",
+    "content-hash": "98da81b7ec395153720f514c25c9cb94",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
-            "version": "5.3.8.1",
+            "version": "5.5.5",
             "dist": {
                 "type": "zip",
-                "url": "https://connect.advancedcustomfields.com/index.php?p=pro&a=download&t=5.3.8.1",
+                "url": "https://connect.advancedcustomfields.com/index.php?p=pro&a=download&t=5.5.5",
                 "reference": null,
                 "shasum": null
             },
@@ -131,16 +131,16 @@
         },
         {
             "name": "johnpbloch/wordpress",
-            "version": "4.6.2",
+            "version": "4.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/johnpbloch/wordpress.git",
-                "reference": "15962104c4d48958e9f78effcbe0fab61eaff3d5"
+                "reference": "6a6a20e568db37fb501fe9deb75ed2a8600d1b30"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/15962104c4d48958e9f78effcbe0fab61eaff3d5",
-                "reference": "15962104c4d48958e9f78effcbe0fab61eaff3d5",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/6a6a20e568db37fb501fe9deb75ed2a8600d1b30",
+                "reference": "6a6a20e568db37fb501fe9deb75ed2a8600d1b30",
                 "shasum": ""
             },
             "require": {
@@ -164,7 +164,7 @@
                 "blog",
                 "cms"
             ],
-            "time": "2017-01-11 16:46:58"
+            "time": "2017-01-11 17:46:47"
         },
         {
             "name": "johnpbloch/wordpress-core-installer",

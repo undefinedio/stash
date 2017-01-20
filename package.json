@@ -18,7 +18,7 @@
         "babel-preset-stage-0": "^6.16.0",
         "browser-sync": "^2.18.5",
         "bs-html-injector": "^3.0.3",
-        "dotenv": "^2.0.0",
+        "dotenv": "^4.0.0",
         "extract-text-webpack-plugin": "^1.0.1",
         "gulp": "^3.9.1",
         "gulp-autoprefixer": "^3.1.1",
@@ -32,7 +32,7 @@
         "gulp-notify": "^2.2.0",
         "gulp-plumber": "^1.1.0",
         "gulp-sass": "^3.0.0",
-        "gulp-sourcemaps": "^1.9.1",
+        "gulp-sourcemaps": "^2.4.0",
         "gulp-watch": "^4.3.11",
         "imagemin": "^5.2.2",
         "imagemin-pngquant": "^5.0.0",
@@ -47,7 +47,7 @@
     "dependencies": {
         "babel-polyfill": "^6.20.0",
         "babel-runtime": "^6.20.0",
-        "jquery": "^2.2.4",
+        "jquery": "^3.1.1",
         "lodash": "^4.17.3",
         "sass-burger": "^1.3.1",
         "viewport-units-buggyfill": "^0.6.0"
