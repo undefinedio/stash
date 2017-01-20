@@ -48,7 +48,8 @@
         "oscarotero/env": "^1.0",
         "wpackagist-plugin/timber-library": "*",
         "advanced-custom-fields/advanced-custom-fields-pro": "*",
-        "roots/soil": "^3.7"
+        "roots/soil": "^3.7",
+        "wpackagist-plugin/slate-admin-theme": "*"
     },
     "extra": {
         "installer-paths": {

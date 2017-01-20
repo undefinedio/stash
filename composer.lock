@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ac4168e7000a1540c0e763e19f4fa54d",
-    "content-hash": "8fe74b356189b34b1a933cc479d7dfa8",
+    "hash": "c4d05f6e04d3b3b67c9934641d06d010",
+    "content-hash": "98da81b7ec395153720f514c25c9cb94",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
@@ -463,6 +463,26 @@
                 "environment"
             ],
             "time": "2016-09-01 10:05:43"
+        },
+        {
+            "name": "wpackagist-plugin/slate-admin-theme",
+            "version": "1.1.7",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/slate-admin-theme/",
+                "reference": "tags/1.1.7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/slate-admin-theme.1.1.7.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/slate-admin-theme/"
         },
         {
             "name": "wpackagist-plugin/timber-library",

@@ -1,9 +1,8 @@
 'use strict';
 
-module.exports = function (gulp, paths, plugins, options) {
+module.exports = function (gulp, paths, plugins, options, srcFile, distFile) {
     return function () {
-
-        return gulp.src(paths.SRC_PATH + 'sass/main.scss')
+        return gulp.src(paths.SRC_PATH + srcFile)
             .pipe(plugins.plumber())
             .pipe(plugins.if(!options.production, plugins.sourcemaps.init()))
             .pipe(plugins.sass({
@@ -16,7 +15,7 @@ module.exports = function (gulp, paths, plugins, options) {
             }))
             .pipe(plugins.if(options.production, plugins.cleanCss({compatibility: 'ie8'})))
             .pipe(plugins.if(!options.production, plugins.sourcemaps.write('./')))
-            .pipe(gulp.dest(paths.DIST_PATH + '/css'))
+            .pipe(gulp.dest(paths.DIST_PATH + distFile))
             .pipe(plugins.browserSync.stream({match: '**/*.css'}))
             .pipe(plugins.if(
                 options.notifications,
