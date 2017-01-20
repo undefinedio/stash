@@ -5,7 +5,6 @@ $footer-padding: (
     mobile: 15px,
     desktop: 30px
 );
-$footer-sticky: true;
 // End options
 
 // MAIN FOOTER
@@ -43,18 +42,5 @@ $footer-sticky: true;
     li,
     a {
         color: $footer-font-color;
-    }
-}
-
-// STICKY FOOTER
-@if ($footer-sticky) {
-    body {
-        display: flex;
-        min-height: 100vh;
-        flex-direction: column;
-    }
-
-    .content-wrapper {
-        flex: 1;
     }
 }
