@@ -13,7 +13,7 @@ module.exports = function (gulp, paths, plugins, options, srcFile, distFile) {
                 browsers: ['last 2 versions', 'Explorer >= 10', 'Android >= 4.1', 'Safari >= 7', 'iOS >= 7'],
                 cascade: false
             }))
-            .pipe(plugins.if(options.production, plugins.cleanCss({compatibility: 'ie8'})))
+            .pipe(plugins.if(options.production, plugins.cleanCss({compatibility: 'ie10'})))
             .pipe(plugins.if(!options.production, plugins.sourcemaps.write('./')))
             .pipe(gulp.dest(paths.DIST_PATH + distFile))
             .pipe(plugins.browserSync.stream({match: '**/*.css'}))
