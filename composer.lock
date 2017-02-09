@@ -4,15 +4,15 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c4d05f6e04d3b3b67c9934641d06d010",
-    "content-hash": "98da81b7ec395153720f514c25c9cb94",
+    "hash": "9171bb08e32ee53ba741866ae18b9396",
+    "content-hash": "015b02f8e0ce79f46cce4458e4844bab",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
-            "version": "5.5.5",
+            "version": "5.5.7",
             "dist": {
                 "type": "zip",
-                "url": "https://connect.advancedcustomfields.com/index.php?p=pro&a=download&t=5.5.5",
+                "url": "https://connect.advancedcustomfields.com/index.php?p=pro&a=download&t=5.5.7",
                 "reference": null,
                 "shasum": null
             },
@@ -131,16 +131,16 @@
         },
         {
             "name": "johnpbloch/wordpress",
-            "version": "4.7.1",
+            "version": "4.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/johnpbloch/wordpress.git",
-                "reference": "6a6a20e568db37fb501fe9deb75ed2a8600d1b30"
+                "reference": "ac7b1792641d1fb61cb2901db292903b31694057"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/6a6a20e568db37fb501fe9deb75ed2a8600d1b30",
-                "reference": "6a6a20e568db37fb501fe9deb75ed2a8600d1b30",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/ac7b1792641d1fb61cb2901db292903b31694057",
+                "reference": "ac7b1792641d1fb61cb2901db292903b31694057",
                 "shasum": ""
             },
             "require": {
@@ -164,7 +164,7 @@
                 "blog",
                 "cms"
             ],
-            "time": "2017-01-11 17:46:47"
+            "time": "2017-01-26 18:32:19"
         },
         {
             "name": "johnpbloch/wordpress-core-installer",
@@ -415,6 +415,31 @@
             "time": "2016-03-01 16:27:06"
         },
         {
+            "name": "undefinedio/admin-theme",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/undefinedio/admin-theme.git",
+                "reference": "f848c030a705a4134b6c27b9e4d40aa4d70979cd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/undefinedio/admin-theme/zipball/f848c030a705a4134b6c27b9e4d40aa4d70979cd",
+                "reference": "f848c030a705a4134b6c27b9e4d40aa4d70979cd",
+                "shasum": ""
+            },
+            "type": "wordpress-plugin",
+            "license": [
+                "MIT"
+            ],
+            "description": "Undefined Admin Theme",
+            "support": {
+                "source": "https://github.com/undefinedio/admin-theme/tree/1.0.0",
+                "issues": "https://github.com/undefinedio/admin-theme/issues"
+            },
+            "time": "2017-01-31 10:50:50"
+        },
+        {
             "name": "vlucas/phpdotenv",
             "version": "v2.4.0",
             "source": {
@@ -463,26 +488,6 @@
                 "environment"
             ],
             "time": "2016-09-01 10:05:43"
-        },
-        {
-            "name": "wpackagist-plugin/slate-admin-theme",
-            "version": "1.1.7",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/slate-admin-theme/",
-                "reference": "tags/1.1.7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/slate-admin-theme.1.1.7.zip",
-                "reference": null,
-                "shasum": null
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/slate-admin-theme/"
         },
         {
             "name": "wpackagist-plugin/timber-library",
