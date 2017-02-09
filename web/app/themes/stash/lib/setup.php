@@ -1,10 +1,23 @@
 <?php
 
-namespace Undefined\Stash\Setup;
+namespace Undefined\Stash;
 
 /**
  * Theme setup
  */
+
+function setControllers()
+{
+    /**
+     * Add the main language page id and name for the controller here
+     */
+    Controller::Instance()->setPages([
+        2 => "sample",
+    ]);
+}
+
+add_action('init', __NAMESPACE__ . '\\setControllers');
+
 function setup()
 {
     // Enable features from Soil when plugin is activated

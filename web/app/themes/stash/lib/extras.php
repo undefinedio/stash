@@ -1,6 +1,6 @@
 <?php
 
-namespace Undefined\Stash\Extras;
+namespace Undefined\Stash;
 
 /**
  * Add <body> classes
@@ -12,6 +12,10 @@ function body_class($classes)
     if (!is_archive() && !is_home()) {
         global $post;
         $classes[] = get_post($post)->post_name;
+    }
+
+    if (Controller::Instance()->getClass()) {
+        $classes[] = Controller::Instance()->getClass();
     }
 
     // Add page slug if it doesn't exist

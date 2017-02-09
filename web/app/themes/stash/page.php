@@ -1,4 +1,6 @@
 <?php
+use Undefined\Stash\Controller;
+
 /**
  * The template for displaying all pages.
  *
@@ -9,7 +11,5 @@
  *
  * @package stash
  */
-$context = Timber::get_context();
-$post = new TimberPost();
-$context['post'] = $post;
-Timber::render(array('page-'.$post->post_name.'.twig', 'page.twig'), $context);
+
+Controller::Instance()->page();
