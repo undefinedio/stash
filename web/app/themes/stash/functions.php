@@ -6,6 +6,8 @@
  * Add or remove files to the array as needed. Supports child theme overrides.
  */
 $stash_includes = [
+    'lib/cache.php',      // Cache
+    'lib/controller.php', // Controller setup
     'lib/timber.php',     // Twig magic
     'lib/assets.php',     // Scripts and stylesheets
     'lib/extras.php',     // Custom functions

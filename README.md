@@ -23,3 +23,15 @@ Dependencies   | [![Dependency Status](https://www.versioneye.com/user/projects/
 4. Set your site vhost document root to `/path/to/site/web/` (`/path/to/site/current/web/` if using deploys)
 5. run `yarn install`
 5. run `gulp`
+
+## Controllers
+
+Automatic linking of pages with controller. It is aware of multi language page ids, so just use the default language id.
+It also adds an new class to the body: 'page-' + controller name
+Controllers work as the following:
+
+1. create a page in the backend
+2. note the page id (main language page id)
+3. add the page id and a name for the controller in ```web/app/themes/stash/lib/setup.php```
+4. create a file inside the controller map with controller name + '.php'
+5. Relax, take a break. Enjoy life
