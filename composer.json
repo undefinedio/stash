@@ -26,7 +26,7 @@
             "type": "package",
             "package": {
                 "name": "advanced-custom-fields/advanced-custom-fields-pro",
-                "version": "5.5.7",
+                "version": "5.5.8",
                 "type": "wordpress-plugin",
                 "dist": {
                     "type": "zip",
@@ -49,7 +49,8 @@
         "oscarotero/env": "^1.0",
         "wpackagist-plugin/timber-library": "*",
         "advanced-custom-fields/advanced-custom-fields-pro": "*",
-        "roots/soil": "^3.7"
+        "roots/soil": "^3.7",
+        "roots/wp-stage-switcher": "^2.0"
     },
     "extra": {
         "installer-paths": {

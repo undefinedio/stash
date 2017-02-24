@@ -1,5 +1,8 @@
+require 'dotenv'
+Dotenv.load
+
 set :application, 'stash'
-set :repo_url, 'git@github.com:undefinedio/stash.git'
+set :repo_url, ENV['REPO']
 set :theme_name, 'stash'
 
 #Prompts for the branch name (defaults to current branch)
