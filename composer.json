@@ -40,17 +40,17 @@
         }
     ],
     "require": {
-        "undefinedio/admin-theme": "~1.0",
         "php": ">=5.6",
         "composer/installers": "~1.2",
         "vlucas/phpdotenv": "^2.3.0",
         "johnpbloch/wordpress": "4.7.*",
         "roots/wp-password-bcrypt": "^1.0.0",
+        "undefinedio/admin-theme": "~1.0",
         "oscarotero/env": "^1.0",
-        "wpackagist-plugin/timber-library": "*",
         "advanced-custom-fields/advanced-custom-fields-pro": "*",
         "roots/soil": "^3.7",
         "roots/wp-stage-switcher": "^2.0"
+        "wpackagist-plugin/timber-library": "*",
     },
     "extra": {
         "installer-paths": {
