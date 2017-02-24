@@ -17,7 +17,7 @@ Env::init();
 $dotenv = new Dotenv\Dotenv($root_dir);
 if (file_exists($root_dir . '/.env')) {
     $dotenv->load();
-    $dotenv->required(['DB_NAME', 'DB_USER', 'DB_PASSWORD', 'WP_HOME', 'WP_SITEURL']);
+    $dotenv->required(['DB_NAME', 'DB_USER', 'DB_PASSWORD', 'ENV_DEVELOPMENT']);
 }
 
 /**
@@ -26,24 +26,47 @@ if (file_exists($root_dir . '/.env')) {
  */
 define('WP_ENV', env('WP_ENV') ?: 'development');
 
-$env_config = __DIR__.'/environments/'.WP_ENV.'.php';
+$env_config = __DIR__ . '/environments/' . WP_ENV . '.php';
 
 if (file_exists($env_config)) {
     require_once $env_config;
 }
 
 /**
+ * Environments
+ */
+$envs = [
+    'development' => env('ENV_DEVELOPMENT'),
+    'staging'     => env('ENV_STAGING'),
+    'production'  => env('ENV_PRODUCTION')
+];
+define('ENVIRONMENTS', serialize($envs));
+
+/**
  * URLs
  */
-define('WP_HOME', env('WP_HOME'));
-define('WP_SITEURL', env('WP_SITEURL'));
+switch (WP_ENV) {
+    case "staging":
+        $WP_HOME = $envs['staging'];
+        break;
+    case "production":
+        $WP_HOME = $envs['production'];
+        break;
+    default:
+        $WP_HOME = $envs['development'];
+}
+
+$WP_SITEURL = $WP_HOME . '/wp';
+
+define('WP_HOME', $WP_HOME);
+define('WP_SITEURL', $WP_SITEURL);
 
 /**
  * Custom Content Directory
  */
 define('CONTENT_DIR', '/app');
-define('WP_CONTENT_DIR', $webroot_dir.CONTENT_DIR);
-define('WP_CONTENT_URL', WP_HOME.CONTENT_DIR);
+define('WP_CONTENT_DIR', $webroot_dir . CONTENT_DIR);
+define('WP_CONTENT_URL', WP_HOME . CONTENT_DIR);
 
 /**
  * DB settings
@@ -79,5 +102,5 @@ define('DISALLOW_FILE_EDIT', true);
  * Bootstrap WordPress
  */
 if (!defined('ABSPATH')) {
-    define('ABSPATH', $webroot_dir.'/wp/');
+    define('ABSPATH', $webroot_dir . '/wp/');
 }
