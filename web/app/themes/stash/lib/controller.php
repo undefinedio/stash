@@ -60,18 +60,63 @@ final class Controller
         }
     }
 
+    /**
+     * Find the correct controller for the single post object
+     *
+     * If none controller is found, fallback on teh default post
+     */
+    public function single()
+    {
+        $this->setContext();
+
+        $context = $this->context;
+
+        $file = get_template_directory() . '/controllers/single/' . $this->context['post']->post_type . '.php';
+
+        if (file_exists($file)) {
+            /**
+             * Set context for included file
+             */
+            include($file);
+        } else {
+            Timber::render(array('single-' . $context['post']->ID . '.twig', 'single-' . $context['post']->post_type . '.twig', 'single.twig'), $context, Cache::getTimerTime());
+        }
+    }
+
+    public function fourOFour()
+    {
+        include(get_template_directory() . '/controllers/404.php');
+    }
+
+    public function archive()
+    {
+        $this->setContext();
+
+        $context = $this->context;
+
+        $file = get_template_directory() . '/controllers/archive/' . $this->context['post']->post_type . '.php';
+
+        if (file_exists($file)) {
+            /**
+             * Set context for included file
+             */
+            include($file);
+        } else {
+            Timber::render(array('single-' . $context['post']->ID . '.twig', 'single-' . $context['post']->post_type . '.twig', 'single.twig'), $context, Cache::getTimerTime());
+        }
+    }
+
     public function page()
     {
         /**
          * Loop though set pages in functions.php->setControllers()
          */
         foreach ($this->pages as $key => $page) {
-
             if (get_the_ID() == $this->returnId($key)) {
                 /**
                  * See if controller excists else fall back to default
                  */
-                $file = get_template_directory() . '/controllers/' . $page . '.php';
+                $file = get_template_directory() . '/controllers/pages/' . $page . '.php';
                 if (file_exists($file)) {
                     $this->found = $page;
 

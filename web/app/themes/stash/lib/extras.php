@@ -11,7 +11,9 @@ function body_class($classes)
 {
     if (!is_archive() && !is_home()) {
         global $post;
-        $classes[] = get_post($post)->post_name;
+        if ($post) {
+            $classes[] = get_post($post)->post_name;
+        }
     }
 
     if (Controller::Instance()->getClass()) {

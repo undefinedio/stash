@@ -1,4 +1,6 @@
 <?php
+use Undefined\Stash\Controller;
+
 /**
  * The main template file
  * This is the most generic template file in a WordPress theme
@@ -19,13 +21,16 @@ if (!class_exists('Timber')) {
     return;
 }
 
-$context = Timber::get_context();
-$context['posts'] = Timber::get_posts();
-$context['foo'] = 'bar';
-$templates = array('index.twig');
-
-if (is_home()) {
-    array_unshift($templates, 'home.twig');
+if (is_404()) {
+    Controller::Instance()->fourOFour();
+} elseif (is_page()) {
+    Controller::Instance()->page();
+} elseif (is_single()) {
+    Controller::Instance()->single();
+} elseif (is_front_page() && is_home() || is_archive()) {
+    Controller::Instance()->archive();
+} else {
+    Controller::Instance()->archive();
 }
 
-Timber::render($templates, $context);
+
