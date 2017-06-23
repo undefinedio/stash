@@ -50,7 +50,7 @@
         "advanced-custom-fields/advanced-custom-fields-pro": "*",
         "roots/soil": "^3.7",
         "roots/wp-stage-switcher": "^2.0";
-        "wpackagist-plugin/timber-library": "*",
+        "wpackagist-plugin/timber-library": "*"
     },
     "extra": {
         "installer-paths": {
