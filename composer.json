@@ -49,8 +49,8 @@
         "oscarotero/env": "^1.0",
         "advanced-custom-fields/advanced-custom-fields-pro": "*",
         "roots/soil": "^3.7",
-        "wpackagist-plugin/timber-library": "*",
-        "roots/wp-stage-switcher": "^2.0"
+        "roots/wp-stage-switcher": "^2.0",
+        "wpackagist-plugin/timber-library": "*"
     },
     "extra": {
         "installer-paths": {
