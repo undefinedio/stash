@@ -57,6 +57,14 @@ class TwigStashTheme extends TimberSite
     {
         $twig->addExtension(new Twig_Extension_StringLoader());
         $twig->addGlobal('image', new ImageHelper());
+        
+         $filter = new Twig_SimpleFilter("translate", function ($string) {
+            pll_register_string($string, $string, "stash");
+
+            return pll__($string);
+        });
+
+        $twig->addFilter($filter);
 
         return $twig;
     }
