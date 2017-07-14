@@ -42,6 +42,7 @@ class TwigStashTheme extends TimberSite
 
         /* if multilang is enabled return current language */
         if (function_exists("pll_current_language")) {
+            $context['languages'] = pll_the_languages(['raw' => 1]);
             $context['current_lang'] = pll_current_language();
         }
 
