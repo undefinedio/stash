@@ -6,7 +6,7 @@ const gulp = require('gulp'),
 /* OPTIONS */
 var options = {
     notifications: true,
-    url: process.env.WP_HOME
+    url: process.env.ENV_DEVELOPMENT
 };
 
 /* PATHS */
