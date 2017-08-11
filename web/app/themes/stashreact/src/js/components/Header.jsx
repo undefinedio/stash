@@ -6,8 +6,6 @@ class Header extends React.Component {
     render() {
         return (
 			<div>
-				<a className="skip-link screen-reader-text" href="#content">Skip to content</a>
-
 				<header id="masthead" className="site-header" role="banner">
 					<div className="site-header-main">
 						<div className="site-branding">

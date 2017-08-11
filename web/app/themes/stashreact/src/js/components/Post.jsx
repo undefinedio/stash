@@ -25,7 +25,6 @@ class Post extends React.Component {
 				<footer className="entry-footer" dangerouslySetInnerHTML={{__html: this.props.post.twentysixteen_entry_meta}}>
 				</footer>
 
-				<div dangerouslySetInnerHTML={{__html: this.props.post.edit_link}}></div>
 
 			</article>
 		);

@@ -171,8 +171,6 @@ add_action('wp_head', 'javascript_detection', 0);
  */
 function load_scripts()
 {
-
-    echo('what is going on here ?');
     // Add Genericons, used in the main stylesheet.
     wp_enqueue_style('genericons', get_template_directory_uri() . '/genericons/genericons.css', array(), '3.4.1');
 
@@ -190,7 +188,6 @@ function load_scripts()
     if (is_singular() && comments_open() && get_option('thread_comments')) {
         wp_enqueue_script('comment-reply');
     }
-
 }
 
 add_action('wp_enqueue_scripts', 'load_scripts');

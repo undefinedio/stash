@@ -12,6 +12,10 @@ class App extends React.Component {
         super(props);
 
         this.handleAllClickEvents = this.handleAllClickEvents.bind(this);
+        this.canUseDOM = !!(
+            (typeof window !== 'undefined' &&
+            window.document && window.document.createElement)
+        );
     }
 
     handleAllClickEvents(event) {
@@ -35,11 +39,15 @@ class App extends React.Component {
     render() {
         let initialStateString = 'window.__INITIAL_STATE__ = ' + includes.htmlescape(this.props) + ';';
 
+        if (this.canUseDOM) {
+            console.log(this.props);
+        }
         return (
             <div id="page" className="site">
                 <div onClick={this.handleAllClickEvents} className="site-inner">
 
                     <Header {...this.props} />
+
 
                     <div id="content" className="site-content">
                         { ('single' === this.props.route.type || '404' === this.props.route.type) ?

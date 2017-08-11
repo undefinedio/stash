@@ -39,3 +39,5 @@ npm-debug.log
 
 /log
 /yarn-error.log
+/web/app/themes/stashreact/dist/js/server.js
+/web/app/themes/stashreact/dist/js/client.js
