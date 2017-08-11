@@ -1,0 +1,46 @@
+// Options for header
+$footer-background-color: rgb(51, 51, 51);
+$footer-font-color: white;
+$footer-padding: (
+    mobile: 15px,
+    desktop: 30px
+);
+// End options
+
+// MAIN FOOTER
+.main-footer {
+    background: $footer-background-color;
+    margin-top: 2em;
+
+    .wrapper {
+        padding-top: map-get($footer-padding, mobile);
+        padding-bottom: map-get($footer-padding, mobile);
+
+        @include media($large-screen-up) {
+            padding-top: map-get($footer-padding, desktop);
+            padding-bottom: map-get($footer-padding, desktop);
+        }
+    }
+
+    .col {
+        @include span-columns(12);
+
+        @include media($medium-screen-up) {
+            @include span-columns(6 of 12);
+            @include omega(2n);
+        }
+
+        @include media($large-screen-up) {
+            @include span-columns(4 of 12);
+            @include omega-reset(2n);
+            @include omega(3n);
+        }
+    }
+
+    &,
+    p,
+    li,
+    a {
+        color: $footer-font-color;
+    }
+}

@@ -1,0 +1,137 @@
+@import "../../../../../../../node_modules/sass-burger/burger";
+
+// Options for header
+$header-background-color: rgb(51, 51, 51);
+$header-font-color: white;
+$header-animation-time: .5s;
+$header-fixed: true;
+$header-height: (
+    mobile: 100px,
+    desktop: 125px
+);
+$header-padding: (
+    mobile: 15px,
+    desktop: 30px
+);
+$navigation-overlay-z-index: 20;
+
+// End options
+
+// HEADER SPACING
+@if $header-fixed {
+    body {
+        padding-top: map-get($header-height, mobile);
+
+        @include media($large-screen-up) {
+            padding-top: map-get($header-height, desktop);
+        }
+    }
+}
+
+// MAIN HEADER
+.main-header {
+    @if $header-fixed {
+        position: fixed;
+        top: 0;
+        width: 100%;
+    }
+
+    background: $header-background-color;
+
+    .hamburger {
+        vertical-align: top;
+        outline: none;
+        float: right;
+        z-index: $navigation-overlay-z-index + 1;
+        position: relative;
+
+        .hamburger-icon {
+            @include burger(25px, 3px, 5px, $header-font-color);
+        }
+
+        &.is-active .hamburger-icon {
+            @include burger-to-cross;
+        }
+
+        @include media($large-screen-up) {
+            display: none;
+        }
+    }
+
+    .wrapper {
+        height: map-get($header-height, mobile);
+        padding-top: map-get($header-padding, mobile);
+        padding-bottom: map-get($header-padding, mobile);
+
+        @include media($large-screen-up) {
+            height: map-get($header-height, desktop);
+            padding-top: map-get($header-padding, desktop);
+            padding-bottom: map-get($header-padding, desktop);
+        }
+    }
+
+    .logo,
+    svg,
+    img {
+        height: 100%;
+    }
+
+    path {
+        fill: $header-font-color;
+    }
+
+    .logo {
+        display: inline-block;
+    }
+}
+
+// MAIN NAVIGATION
+.nav-main {
+    @extend %overlay;
+    @extend %vertical-align;
+
+    top: -100%;
+    bottom: 100%;
+    position: fixed;
+
+    background: $header-background-color;
+    transition: all $header-animation-time ease;
+    z-index: $navigation-overlay-z-index;
+
+    @include media($large-screen-up) {
+        top: auto;
+        position: relative;
+        display: inline-block;
+        vertical-align: top;
+        float: right;
+
+        a {
+            line-height: map-get($header-height, desktop) - (2 * map-get($header-padding, desktop));
+            padding: 0 1em;
+
+            &:last-child {
+                padding-right: 0;
+            }
+        }
+
+        ul {
+            margin: 0;
+        }
+
+        .nav-item {
+            display: inline-block;
+        }
+    }
+
+    a {
+        width: 100%;
+        text-align: center;
+        color: $header-font-color;
+        display: block;
+    }
+
+    .nav-open & {
+        top: 0;
+        bottom: 0;
+    }
+}
