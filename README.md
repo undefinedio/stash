@@ -3,10 +3,10 @@
 =======
 # STASH
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/undefinedio/stash.svg)](https://greenkeeper.io/)
 
 Badges         | -
 -------------  | -------------
+Greenkeeper    | [![Greenkeeper badge](https://badges.greenkeeper.io/undefinedio/stash.svg)](https://greenkeeper.io/)
 Scrutinizer    | [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/undefinedio/stash/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/undefinedio/stash/?branch=master)
 Dependencies   | [![Dependency Status](https://www.versioneye.com/user/projects/57dbb14a500a3100425c95ce/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/57dbb14a500a3100425c95ce)
 
