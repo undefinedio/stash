@@ -3,6 +3,8 @@
 =======
 # STASH
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/undefinedio/stash.svg)](https://greenkeeper.io/)
+
 Badges         | -
 -------------  | -------------
 Scrutinizer    | [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/undefinedio/stash/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/undefinedio/stash/?branch=master)
