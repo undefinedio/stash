@@ -4,7 +4,7 @@ Dotenv.load
 set :stage, :production
 
 $user = ENV['PRODUCTION_USER']
-server ENV['PRODUCTION__SERVER'], user: $user, roles: %w{web app db}
+server ENV['PRODUCTION_SERVER'], user: $user, roles: %w{web app db}
 
 set :deploy_to, -> { "/home/#$user/app" }
 set :tmp_dir, "/home/#$user/tmp"
