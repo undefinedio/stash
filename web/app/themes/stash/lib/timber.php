@@ -42,6 +42,7 @@ class TwigStashTheme extends TimberSite
 
         /* if multilang is enabled return current language */
         if (function_exists("pll_current_language")) {
+            $context['languages'] = pll_the_languages(['raw' => 1]);
             $context['current_lang'] = pll_current_language();
         }
 
@@ -57,6 +58,14 @@ class TwigStashTheme extends TimberSite
     {
         $twig->addExtension(new Twig_Extension_StringLoader());
         $twig->addGlobal('image', new ImageHelper());
+        
+         $filter = new Twig_SimpleFilter("translate", function ($string) {
+            pll_register_string($string, $string, "stash");
+
+            return pll__($string);
+        });
+
+        $twig->addFilter($filter);
 
         return $twig;
     }
