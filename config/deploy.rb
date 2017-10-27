@@ -1,6 +1,10 @@
 require 'dotenv'
 Dotenv.load
 
+set :default_environment, {
+  'LANG' => 'en_US.UTF-8'
+}
+
 set :application, 'stash'
 set :repo_url, ENV['REPO']
 set :theme_name, 'stash'
