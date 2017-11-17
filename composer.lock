@@ -4,15 +4,15 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3953311341fae64dd2e6face6a0cca3a",
-    "content-hash": "45b69eab0abd3f2b7f97204f9c3ee8d2",
+    "hash": "c03b9bef1f84d9bb3d80b3d01497ca8f",
+    "content-hash": "0e8cfffb16f9cd11e065bb4c377bb6bd",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
-            "version": "5.6.3",
+            "version": "5.6.5",
             "dist": {
                 "type": "zip",
-                "url": "https://connect.advancedcustomfields.com/index.php?p=pro&a=download&t=5.6.3",
+                "url": "https://connect.advancedcustomfields.com/index.php?p=pro&a=download&t=5.6.5",
                 "reference": null,
                 "shasum": null
             },
@@ -192,20 +192,20 @@
         },
         {
             "name": "johnpbloch/wordpress",
-            "version": "4.8.2",
+            "version": "4.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/johnpbloch/wordpress.git",
-                "reference": "d500aae1793990e4874cf794b6cf88ce60a38918"
+                "reference": "b15c463dc04c79483058a3da16865c356393408d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/d500aae1793990e4874cf794b6cf88ce60a38918",
-                "reference": "d500aae1793990e4874cf794b6cf88ce60a38918",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/b15c463dc04c79483058a3da16865c356393408d",
+                "reference": "b15c463dc04c79483058a3da16865c356393408d",
                 "shasum": ""
             },
             "require": {
-                "johnpbloch/wordpress-core": "4.8.2",
+                "johnpbloch/wordpress-core": "4.9.0",
                 "johnpbloch/wordpress-core-installer": "^1.0",
                 "php": ">=5.3.2"
             },
@@ -227,27 +227,27 @@
                 "cms",
                 "wordpress"
             ],
-            "time": "2017-09-19 22:27:16"
+            "time": "2017-11-16 01:32:51"
         },
         {
             "name": "johnpbloch/wordpress-core",
-            "version": "4.8.2",
+            "version": "4.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/johnpbloch/wordpress-core.git",
-                "reference": "706faa0d7b6b57a25d4acd18331dd71dfa6b01cf"
+                "reference": "bf2ed9c364d35bcabd15c4bb139c2581ea8513a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/johnpbloch/wordpress-core/zipball/706faa0d7b6b57a25d4acd18331dd71dfa6b01cf",
-                "reference": "706faa0d7b6b57a25d4acd18331dd71dfa6b01cf",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress-core/zipball/bf2ed9c364d35bcabd15c4bb139c2581ea8513a9",
+                "reference": "bf2ed9c364d35bcabd15c4bb139c2581ea8513a9",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2"
             },
             "provide": {
-                "wordpress/core-implementation": "4.8.2"
+                "wordpress/core-implementation": "4.9.0"
             },
             "type": "wordpress-core",
             "notification-url": "https://packagist.org/downloads/",
@@ -267,7 +267,7 @@
                 "cms",
                 "wordpress"
             ],
-            "time": "2017-09-19 22:27:11"
+            "time": "2017-11-16 01:32:46"
         },
         {
             "name": "johnpbloch/wordpress-core-installer",
@@ -677,15 +677,15 @@
         },
         {
             "name": "wpackagist-plugin/timber-library",
-            "version": "1.5.0",
+            "version": "1.5.2",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/timber-library/",
-                "reference": "tags/1.5.0"
+                "reference": "tags/1.5.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/timber-library.1.5.0.zip",
+                "url": "https://downloads.wordpress.org/plugin/timber-library.1.5.2.zip",
                 "reference": null,
                 "shasum": null
             },
