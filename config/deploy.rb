@@ -49,7 +49,7 @@ namespace :deploy do
       info " Your local distribution path: #{fetch(:local_dist_path)} "
       info " Your remote distribution path: #{fetch(:remote_dist_path)} "
       info " Uploading files to remote "
-      upload! fetch(:local_dist_path).to_s, fetch(:remote_dist_path), recursive: true
+      upload! fetch(:local_dist_path).to_s, fetch(:remote_dist_path).to_s, recursive: true
     end
   end
  
