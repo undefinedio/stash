@@ -6,6 +6,9 @@ class Homepage {
 
     init() {
         console.log('homepage js class is running');
+        console.log('is it tho?');
+
+
     }
 }
 
