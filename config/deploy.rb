@@ -5,6 +5,11 @@ set :default_environment, {
   'LANG' => 'en_US.UTF-8'
 }
 
+# Force terminal to use php7
+SSHKit.config.command_map[:bash] = "/usr/bin/bash"
+SSHKit.config.command_map[:composer] = "/usr/local/php71/bin/php71 /usr/local/bin/composer"
+SSHKit.config.command_map[:php] = "/usr/local/php71/bin/php71"
+
 set :application, 'stash'
 set :repo_url, ENV['REPO']
 set :theme_name, 'stash'
@@ -49,7 +54,7 @@ namespace :deploy do
       info " Your local distribution path: #{fetch(:local_dist_path)} "
       info " Your remote distribution path: #{fetch(:remote_dist_path)} "
       info " Uploading files to remote "
-      upload! fetch(:local_dist_path).to_s, fetch(:remote_dist_path), recursive: true
+      upload! fetch(:local_dist_path).to_s, fetch(:remote_dist_path).to_s, recursive: true
     end
   end
  
