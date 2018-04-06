@@ -98,7 +98,7 @@ final class Controller
         if (is_category()) {
             $file = get_template_directory() . '/controllers/archive/category.php';
         } else {
-            $file = get_template_directory() . '/controllers/archive/' . $this->context['post']->post_type . '.php';
+            $file = get_template_directory() . '/controllers/archive/' . $this->context['post']->title . '.php';
         }
 
         if (file_exists($file)) {
