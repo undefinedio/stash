@@ -1,4 +1,5 @@
 <?php
+
 namespace Undefined\Stash;
 
 use Timber\Timber;
@@ -94,7 +95,11 @@ final class Controller
 
         $context = $this->context;
 
-        $file = get_template_directory() . '/controllers/archive/' . $this->context['post']->post_type . '.php';
+        if (is_category()) {
+            $file = get_template_directory() . '/controllers/archive/category.php';
+        } else {
+            $file = get_template_directory() . '/controllers/archive/' . $this->context['post']->post_type . '.php';
+        }
 
         if (file_exists($file)) {
             /**

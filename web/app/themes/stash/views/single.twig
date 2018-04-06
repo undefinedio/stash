@@ -8,6 +8,13 @@
                 <p class="blog-author">
                     <span>By</span>
                     <a href="{{ post.author.path }}"> {{ post.author.name }} </a>
+                    <span>&bull;</span>
+                    {% for cat in  post.terms('category') %}
+                        {% if loop.index != 0 %}
+                            ,
+                        {% endif %}
+                        <a href="{{ cat.link }}"> {{ cat.name }} </a>
+                    {% endfor %}
                     <span>&bull;</span> {{ post.post_date|date }}
                 </p>
                 <div class="article-body">
