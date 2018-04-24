@@ -167,9 +167,7 @@ final class Controller
             }
         }
 
-        if ($file && file_exists($file)) {
-
-
+        if (isset($file) && file_exists($file)) {
             $this->setContext();
             /**
              * Set context for included file
