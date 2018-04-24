@@ -28,7 +28,6 @@ module.exports = {
             'webpack/hot/dev-server',
             'webpack-hot-middleware/client',
             paths.SRC_PATH + 'js/main.js',
-
         ],
     target: 'web',
     output: {
