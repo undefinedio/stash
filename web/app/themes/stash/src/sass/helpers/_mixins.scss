@@ -63,3 +63,27 @@ $feature: min-width;
     top: 50%;
     transform: translateY(-50%);
 }
+
+@mixin spacer($location: 'top', $multiplier : 1, $how: 'padding') {
+    @if ($location == 'all') {
+        #{$how}: $default-spacer * $multiplier;
+    } @else {
+        #{$how}-#{$location}: $default-spacer * $multiplier;
+    }
+
+    @include media($medium-screen-up) {
+        @if ($location == 'all') {
+            #{$how}: ($default-spacer * map-get($bp-multiplier, tablet)) * $multiplier;
+        } @else {
+            #{$how}-#{$location}: ($default-spacer * map-get($bp-multiplier, tablet)) * $multiplier;
+        }
+    }
+
+    @include media($large-screen-up) {
+        @if ($location == 'all') {
+            #{$how}: ($default-spacer * map-get($bp-multiplier, desktop)) * $multiplier;
+        } @else {
+            #{$how}-#{$location}: ($default-spacer * map-get($bp-multiplier, desktop)) * $multiplier;
+        }
+    }
+}

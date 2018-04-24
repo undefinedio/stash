@@ -14,6 +14,13 @@ function setControllers()
     Controller::Instance()->setPages([
         2 => "sample",
     ]);
+
+    /**
+     * all childeren of parents will go to the specified controller (only pages)
+     */
+    Controller::Instance()->setParentPages([
+        2 => "parent"
+    ]);
 }
 
 add_action('init', __NAMESPACE__ . '\\setControllers');
