@@ -25,7 +25,8 @@ module.exports = {
     noInfo: false,
     entry: PROD ? [paths.SRC_PATH + 'js/main.js'] :
         [
-            'webpack-hot-middleware/client?http://${HOST}:${PORT}&reload=true', // reloads the page if hot module reloading fails.
+            'webpack/hot/dev-server',
+            'webpack-hot-middleware/client',
             paths.SRC_PATH + 'js/main.js',
         ],
     target: 'web',

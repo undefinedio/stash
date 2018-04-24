@@ -6,7 +6,7 @@ const body = new HasClass('body');
 
 class App {
     constructor() {
-        this.injector = { app: this };
+        this.injector = {app: this};
 
         this.navigation = new Navigation();
     }

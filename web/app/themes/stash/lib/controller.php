@@ -7,6 +7,10 @@ use Timber\Post as TimberPost;
 
 final class Controller
 {
+    private $parentPages;
+    private $found;
+    private $pages;
+
     /**
      * Controller constructor.
      *
@@ -43,6 +47,16 @@ final class Controller
     }
 
     /**
+     * Set all pages from within the functions.php->setControllers()
+     *
+     * @param $pages
+     */
+    public function setParentPages($pages)
+    {
+        $this->parentPages = $pages;
+    }
+
+    /**
      * Set context for the page
      */
     private function setContext()
@@ -72,7 +86,7 @@ final class Controller
 
         $context = $this->context;
 
-        $file = get_template_directory() . '/controllers/single/' . $this->context['post']->post_type . '.php';
+        $file = get_template_directory() . '/controllers/single/' . strtolower($this->context['post']->post_type) . '.php';
 
         if (file_exists($file)) {
             /**
@@ -82,6 +96,15 @@ final class Controller
         } else {
             Timber::render(array('single-' . $context['post']->ID . '.twig', 'single-' . $context['post']->post_type . '.twig', 'single.twig'), $context, Cache::getTimerTime());
         }
+    }
+
+    public function search()
+    {
+        $this->setContext();
+
+        $context = $this->context;
+
+        Timber::render(array('search.twig', 'archive.twig'), $context, Cache::getTimerTime());
     }
 
     public function fourOFour()
@@ -97,8 +120,10 @@ final class Controller
 
         if (is_category()) {
             $file = get_template_directory() . '/controllers/archive/category.php';
+        } else if (is_tax()) {
+            $file = get_template_directory() . '/controllers/archive/tax.php';
         } else {
-            $file = get_template_directory() . '/controllers/archive/' . $this->context['post']->title . '.php';
+            $file = get_template_directory() . '/controllers/archive/' . strtolower($this->context['post']->title) . '.php';
         }
 
         if (file_exists($file)) {
@@ -113,27 +138,45 @@ final class Controller
 
     public function page()
     {
+        $pageId = get_the_ID();
+        $parentId = wp_get_post_parent_id($pageId);
+
         /**
          * Loop though set pages in functions.php->setControllers()
          */
-        foreach ($this->pages as $key => $page) {
-            if (get_the_ID() == $this->returnId($key)) {
+        foreach ($this->parentPages as $key => $page) {
+            if ($parentId == $this->returnId($key)) {
                 /**
                  * See if controller excists else fall back to default
                  */
                 $file = get_template_directory() . '/controllers/pages/' . $page . '.php';
-                if (file_exists($file)) {
-                    $this->found = $page;
-
-                    $this->setContext();
-                    /**
-                     * Set context for included file
-                     */
-                    $context = $this->context;
-
-                    include($file);
-                }
+                $this->found = $page;
             }
+        }
+
+        /**
+         * Loop though set pages in functions.php->setControllers()
+         */
+        foreach ($this->pages as $key => $page) {
+            if ($pageId == $this->returnId($key)) {
+                /**
+                 * See if controller excists else fall back to default
+                 */
+                $file = get_template_directory() . '/controllers/pages/' . $page . '.php';
+                $this->found = $page;
+            }
+        }
+
+        if ($file && file_exists($file)) {
+
+
+            $this->setContext();
+            /**
+             * Set context for included file
+             */
+            $context = $this->context;
+
+            include($file);
         }
 
         if (!$this->found) {
@@ -149,7 +192,7 @@ final class Controller
     {
         $this->setContext();
         $context = $this->context;
-        Timber::render(['page-' . $this->context['post']->post_name . '.twig', 'page.twig'], $this->context, Cache::getTimerTime());
+        Timber::render(['page-' . strtolower($this->context['post']->post_name) . '.twig', 'page.twig'], $this->context, Cache::getTimerTime());
     }
 
     /**
