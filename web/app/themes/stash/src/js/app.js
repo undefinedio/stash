@@ -9,6 +9,7 @@ class App {
         this.injector = { app: this };
 
         this.navigation = new Navigation();
+        console.log('jowww krokmeister hiero wassu wihth your ass ?');
     }
 
     start() {

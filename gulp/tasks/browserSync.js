@@ -14,6 +14,8 @@ module.exports = function (gulp, paths, plugins, options) {
         plugins.browserSync.use(htmlInjector, {restrictions: ['#content']});
 
         return plugins.browserSync.init({
+            open: true,
+            reloadOnRestart: true,
             files: [{
                 // js managed by webpack
                 // optionally exclude other managed assets: images, fonts, etc
@@ -23,23 +25,21 @@ module.exports = function (gulp, paths, plugins, options) {
                 fn: synchronize,
             }],
             //browsersync with a php server
-            proxy: {
-                target: options.url,
-                middleware: [
+            proxy: options.url,
+            middleware: [
 
-                    // converts browsersync into a webpack-dev-server
-                    webpackDevMiddleware(bundler, {
-                        publicPath: webpackConfig.output.publicPath,
-                        noInfo: true,
-                        hot: true,
-                        watchOptions: {aggregateTimeout: 10},
-                        stats: {colors: true}
-                    }),
+                // converts browsersync into a webpack-dev-server
+                webpackDevMiddleware(bundler, {
+                    publicPath: webpackConfig.output.publicPath,
+                    noInfo: true,
+                    hot: true,
+                    watchOptions: {aggregateTimeout: 10},
+                    stats: {colors: true}
+                }),
 
-                    // hot update js &amp;&amp; css
-                    webpackHotMiddleware(bundler),
-                ],
-            },
+                // hot update js &amp;&amp; css
+                webpackHotMiddleware(bundler),
+            ],
             notify: options.notifications
         });
 
