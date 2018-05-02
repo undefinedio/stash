@@ -1,4 +1,5 @@
 <?php
+
 use Undefined\Stash\ImageHelper;
 
 /**
@@ -58,14 +59,24 @@ class TwigStashTheme extends TimberSite
     {
         $twig->addExtension(new Twig_Extension_StringLoader());
         $twig->addGlobal('image', new ImageHelper());
-        
-         $filter = new Twig_SimpleFilter("translate", function ($string) {
-            pll_register_string($string, $string, "stash");
 
-            return pll__($string);
-        });
+        if (function_exists('pll_register_string')) {
+            $filter = new Twig_SimpleFilter("translate", function ($string) {
+                pll_register_string($string, $string, "stash");
 
-        $twig->addFilter($filter);
+                return pll__($string);
+            });
+
+            $twig->addFilter($filter);
+        }
+
+        if (function_exists('wpautop')) {
+            $filter = new Twig_SimpleFilter("p", function ($object) {
+                return wpautop($object);
+            });
+
+            $twig->addFilter($filter);
+        }
 
         return $twig;
     }
