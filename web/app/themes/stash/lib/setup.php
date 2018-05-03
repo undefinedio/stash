@@ -16,7 +16,7 @@ function setControllers()
     ]);
 
     /**
-     * all childeren of parents will go to the specified controller (only pages)
+     * all children of parents will go to the specified controller (only pages)
      */
     Controller::Instance()->setParentPages([
         2 => "parent"
