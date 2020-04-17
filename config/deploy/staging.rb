@@ -8,7 +8,7 @@ $path= ENV['STAGING_PATH']
 server ENV['STAGING_SERVER'], user: $user, roles: %w{web app db}
 set :log_level, :debug
 
-set :deploy_to, -> { "#$path" }
+set :deploy_to, -> { "#$path/app" }
 
 set :tmp_dir, "#$path/tmp"
 set :branch, :'develop'
