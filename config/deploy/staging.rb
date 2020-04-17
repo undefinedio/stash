@@ -6,9 +6,11 @@ set :stage, :staging
 $user = ENV['STAGING_USER']
 $path= ENV['STAGING_PATH']
 server ENV['STAGING_SERVER'], user: $user, roles: %w{web app db}
+set :log_level, :debug
 
-set :deploy_to, -> { "/home/#$user/subdomains/#$path" }
-set :tmp_dir, "/home/#$user/tmp"
+set :deploy_to, -> { "#$path" }
+
+set :tmp_dir, "#$path/tmp"
 set :branch, :'develop'
 set :wpcli_backup_db, true
 

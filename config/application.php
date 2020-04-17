@@ -104,3 +104,9 @@ define('DISALLOW_FILE_EDIT', true);
 if (!defined('ABSPATH')) {
     define('ABSPATH', $webroot_dir . '/wp/');
 }
+
+/**
+ * WPROCKET settings
+ */
+define('WP_ROCKET_EMAIL', env('WP_ROCKET_EMAIL'));
+define('WP_ROCKET_KEY', env('WP_ROCKET_KEY'));

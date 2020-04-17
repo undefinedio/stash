@@ -19,6 +19,10 @@
     },
     "repositories": [
         {
+            "type": "vcs",
+            "url": "https://github.com/tabrisrp/wp-background-processing"
+        },
+        {
             "type": "composer",
             "url": "http://wpackagist.org"
         },
@@ -26,7 +30,7 @@
             "type": "package",
             "package": {
                 "name": "advanced-custom-fields/advanced-custom-fields-pro",
-                "version": "5.6.9",
+                "version": "5.7.13",
                 "type": "wordpress-plugin",
                 "dist": {
                     "type": "zip",
@@ -43,14 +47,20 @@
         "php": ">=5.6",
         "composer/installers": "~1.2",
         "vlucas/phpdotenv": "^2.3.0",
-        "johnpbloch/wordpress": "4.9.*",
+        "johnpbloch/wordpress": "*",
         "roots/wp-password-bcrypt": "^1.0.0",
         "undefinedio/admin-theme": "~1.0",
         "oscarotero/env": "^1.0",
         "advanced-custom-fields/advanced-custom-fields-pro": "*",
         "roots/soil": "^3.7",
         "roots/wp-stage-switcher": "^2.0",
-        "wpackagist-plugin/timber-library": "*"
+        "wpackagist-plugin/health-check": "^1.2",
+        "wpackagist-plugin/really-simple-ssl": "^3.1",
+        "wpackagist-plugin/duplicate-post": "^3.2",
+        "wpackagist-plugin/simple-custom-post-order": "^2.4",
+        "wpackagist-plugin/timber-library": "*",
+        "wpackagist-plugin/debug-bar-timber": "~0.3",
+        "wpackagist-plugin/debug-bar": "~1.0"
     },
     "extra": {
         "installer-paths": {
