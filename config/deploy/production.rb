@@ -4,13 +4,13 @@ Dotenv.load
 set :stage, :production
 
 $user = ENV['PRODUCTION_USER']
-$path = ENV['PRODUCTION_PATH']
 server ENV['PRODUCTION_SERVER'], user: $user, roles: %w{web app db}
+$path= ENV['PRODUCTION_PATH']
 set :log_level, :debug
 
-set :deploy_to, -> { "#$path/app" }
+set :deploy_to, -> { "/var/www/vhosts/#$path/app" }
+set :tmp_dir, "/var/www/vhosts/#$path/tmp"
 
-set :tmp_dir, "/#$path/tmp"
 set :branch, :'master'
 set :wpcli_backup_db, true
 
