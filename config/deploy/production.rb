@@ -5,9 +5,12 @@ set :stage, :production
 
 $user = ENV['PRODUCTION_USER']
 server ENV['PRODUCTION_SERVER'], user: $user, roles: %w{web app db}
+$path= ENV['PRODUCTION_PATH']
+set :log_level, :debug
 
-set :deploy_to, -> { "/home/#$user/app" }
-set :tmp_dir, "/home/#$user/tmp"
+set :deploy_to, -> { "/var/www/vhosts/#$path/app" }
+set :tmp_dir, "/var/www/vhosts/#$path/tmp"
+
 set :branch, :'master'
 set :wpcli_backup_db, true
 

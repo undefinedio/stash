@@ -5,14 +5,9 @@ set :default_environment, {
   'LANG' => 'en_US.UTF-8'
 }
 
-# Force terminal to use php7
-SSHKit.config.command_map[:bash] = "/usr/bin/bash"
-SSHKit.config.command_map[:composer] = "/usr/local/php71/bin/php71 /usr/local/bin/composer"
-SSHKit.config.command_map[:php] = "/usr/local/php71/bin/php71"
-
-set :application, 'stash'
+set :application, 'base-camp'
 set :repo_url, ENV['REPO']
-set :theme_name, 'stash'
+set :theme_name, 'base-camp'
 
 #Prompts for the branch name (defaults to current branch)
 ask :branch, -> { `git rev-parse --abbrev-ref HEAD`.chomp }
@@ -22,6 +17,7 @@ set :log_level, :info
 
 # Linked files & Dirs
 set :linked_files, fetch(:linked_files, []).push('.env')
+set :linked_files, fetch(:linked_files, []).push('web/app/themes/base-camp/.env')
 set :linked_dirs, fetch(:linked_dirs, []).push('web/app/uploads')
 
 #################
@@ -29,35 +25,41 @@ set :linked_dirs, fetch(:linked_dirs, []).push('web/app/uploads')
 #################
 
 namespace :deploy do
- 
   # Theme path
   set :theme_path, Pathname.new('web/app/themes').join(fetch(:theme_name))
- 
+
   # Local Paths
   set :local_theme_path, Pathname.new(File.dirname(__FILE__)).join('../').join(fetch(:theme_path))
-  set :local_dist_path, fetch(:local_theme_path).join('dist')
- 
+  set :local_root_path, Pathname.new(File.dirname(__FILE__)).join('../')
+  set :local_dist_path, fetch(:local_theme_path).join('static')
+
+  desc 'Build assets with yarn'
   task :build do
     run_locally do
       within fetch(:local_theme_path) do
          execute "export LC_ALL=\"en_US.UTF-8\""
-         execute "./node_modules/.bin/gulp build --production"
+         execute :yarn, 'prod'
       end
     end
+
+    on roles(:web) do
+      set :remote_dist_path, -> { release_path.join(fetch(:theme_path).to_s) }
+      execute "cd #{fetch(:remote_dist_path)} && composer install --no-dev --no-interaction --quiet --optimize-autoloader"
+    end
   end
- 
+
   task :copy do
     on roles(:web) do
       # Remote Paths (Lazy-load until actual deploy)
       set :remote_dist_path, -> { release_path.join(fetch(:theme_path)) }
- 
+
       info " Your local distribution path: #{fetch(:local_dist_path)} "
       info " Your remote distribution path: #{fetch(:remote_dist_path)} "
       info " Uploading files to remote "
       upload! fetch(:local_dist_path).to_s, fetch(:remote_dist_path).to_s, recursive: true
     end
   end
- 
+
   task assets: %w(build copy)
 end
 
